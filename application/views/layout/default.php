@@ -2,7 +2,7 @@
 $action = $this->uri->segment(1);
 $action_next = $this->uri->segment(2);
 ?>
-<!DOCTYPE>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -42,10 +42,10 @@ $action_next = $this->uri->segment(2);
   <div class="sider_tool">
       <ul class="unstyled">
           <li title="意见反馈"><a href="<?php echo site_url('about/feedback') ?>"><img src="<?php echo base_url('static/images/common/feedback.png') ?>" alt="feedback"/></a></li>
-          <li title="反馈顶部"><a href="javascript:window.scrollTo(0,0);"><img src="<?php echo base_url('static/images/common/to_top.png') ?>" alt="to_top"/></a></li>
-          <li title="在线咨询">
+          <li title="返回顶部"><a href="javascript:window.scrollTo(0,0);"><img src="<?php echo base_url('static/images/common/to_top.png') ?>" alt="to_top"/></a></li>
+          <!--li title="在线咨询">
               <a href="http://wpa.qq.com/msgrd?v=3&uin=1613847076&site=qq&menu=yes"><img border="0" src="<?php echo base_url('static/images/common/qq.png') ?>" alt="点击这里给我发消息" title="点击这里给我发消息"></a>
-          </li>
+          </li-->
       </ul>
   </div>
 </body>

@@ -9,7 +9,7 @@ class Layout
     var $CI;//CI系统库
     var $layout = array(//包含模板名称、描述、加载css,js列表路径等等
         'name' => 'layout/default',
-        'title' => '易教易学，人人为师',
+        'title' => '聪明你的旅程',
         'css' => array(),//需要加载的自定义css文件，这里设计成了全路径
         'javascript' => array(),
         'content' => '',

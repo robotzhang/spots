@@ -1,16 +1,13 @@
-<div class="row" style="margin-bottom: 30px;">
-    <div class="span3 mb20">
-        <div style="padding: 10px; height: 280px; overflow: hidden; text-overflow: ellipsis;" class="box">
-            <p>
-                <a href="<?php echo site_url('rooms/1') ?>">
-                    <img width="210" src="<?php echo site_url('static/images/home/php.png') ?>">
-                </a>
-            </p>
-            <div><a href="<?php echo site_url('rooms/1') ?>" style="color: #333;"><strong>来，一起学php！</strong></a></div>
-            <div>
-                <strong>价格：</strong> 498 学币
-                <div><em>101</em>人在学，<em>201</em>人完成</div>
-            </div>
-        </div>
-    </div>
+<style type="text/css">
+    .site { padding: 40px 0; height: 600px; *height: 520px; background: url(<?php echo base_url('/static/images/home/hero2.jpg') ?>) center 0px no-repeat; background-size: cover; }
+    .active { padding: 10px; border-radius: 5px; background: #fff; background: none repeat scroll 0 0 rgba(255, 255, 255, 0.8); box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.4);
+        width: 390px; float: right;
+    }
+    .active legend { margin-bottom: 10px; text-align: center; }
+    .active .control-label { width: 100px; }
+    .active .controls { margin-left: 120px; *margin-left: 0; }
+</style>
+
+<div class="active">
+    <?php $this->load->view('users/activation_form.php'); ?>
 </div>

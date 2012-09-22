@@ -1,6 +1,6 @@
 <div class="header">
     <div class="container">
-        <a href="/"><img src="<?php echo base_url('static/images/logo.png') ?>"/> 易教易学，人人为师</a>
+        <div class="pull-left"><a href="/"><img src="<?php echo base_url('static/images/logo.png') ?>"/> 聪明你的旅程</a></div>
         <div class="member clearfix pull-right">
             <?php if (is_login()): ?>
                 <a href="javascript:void(0);" class="show_drop_menu">
@@ -13,7 +13,7 @@
                     <li><a href="<?php echo site_url('logout?url='.current_url()) ?>"><i class="icon-off"></i> 退出</a></li>
                 </ul>
             <?php else: ?>
-                <a href="<?php echo site_url('register?url='.current_url()) ?>">注册</a> -
+                <a href="<?php echo site_url('register?url='.current_url()) ?>">激活</a> -
                 <a href="<?php echo site_url('login?url='.current_url()) ?>">登录</a>
             <?php endif ?>
         </div>

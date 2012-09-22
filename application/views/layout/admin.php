@@ -2,7 +2,7 @@
 $action = $this->uri->segment(1);
 $action_next = $this->uri->segment(2);
 ?>
-<!DOCTYPE>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
