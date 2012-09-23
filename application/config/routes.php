@@ -3,7 +3,7 @@
 $route['default_controller'] = "welcome";
 $route['404_override'] = '';
 $route['my'] = "my/my";
-$route['rooms/(:num)'] = "rooms/show/$1";
+$route['login'] = "users/login";
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

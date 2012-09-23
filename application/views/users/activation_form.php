@@ -40,7 +40,7 @@
         <div class="control-group">
             <div class="controls">
                 <button class="btn btn-primary btn-large" type="submit">立刻免费激活</button>
-                <span style="color: #777; margin-left: 10px;">已激活？<a href="<?php echo site_url('login') ?>">登陆</a></span>
+                <span style="color: #777; margin-left: 10px;">已激活？<a href="<?php echo site_url('login') ?>">登录</a></span>
             </div>
         </div>
     </fieldset>

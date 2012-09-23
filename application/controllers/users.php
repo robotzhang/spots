@@ -7,6 +7,11 @@ class Users extends CI_Controller {
 	public function activation() {
 		$this->layout->view('users/activation');
 	}
+
+    // 登陆到系统
+    public function login() {
+        $this->layout->view('users/login');
+    }
 }
 
 /* End of file welcome.php */
