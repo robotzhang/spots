@@ -5,10 +5,8 @@
 
 <div class="menu">
     <ul class="unstyled">
-        <li><a href="<?php echo site_url('my') ?>">我的主页</a></li>
-        <li><a href="<?php echo site_url('my/rooms') ?>">课堂管理</a></li>
-        <li><a href="<?php echo site_url('my/lessons') ?>">课程管理</a></li>
-        <li><a href="<?php echo site_url('my/homework') ?>">作业管理</a></li>
-        <li><a href="<?php echo site_url('my/accounts') ?>">账户管理</a></li>
+        <li><a <?php if ($action_next=='reports') echo 'class="selected"' ?> href="<?php echo site_url('admin/reports') ?>">系统报表</a></li>
+        <li><a <?php if ($action_next=='handbooks') echo 'class="selected"' ?> href="<?php echo site_url('admin/handbooks') ?>">手册维护</a></li>
+        <li><a <?php if ($action_next=='spots') echo 'class="selected"' ?> href="<?php echo site_url('admin/spots') ?>">景点维护</a></li>
     </ul>
 </div>
