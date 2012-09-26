@@ -23,10 +23,9 @@
 </form>
 
 <script charset="utf-8" src="<?php echo base_url('static/javascripts/plugins/kindeditor/kindeditor.js') ?>"></script>
-<script charset="utf-8" src="<?php echo base_url('static/javascripts/plugins/lang/zh_CN.js') ?>"></script>
 <script>
     var editor;
     KindEditor.ready(function(K) {
-        editor = K.create('#editor'/*, { items: items }*/);
+        editor = K.create('#editor', { uploadJson: '<?php echo site_url('admin/admin/upload') ?>', height: 400 });
     });
 </script>

@@ -15,6 +15,28 @@ class Admin extends CI_Controller {
     public function reports() {
 
     }
+
+    public function upload() {
+        $config['upload_path'] = getcwd().'./uploads/kindeditor';
+        $config['allowed_types'] = 'gif|jpg|png';
+        $config['max_size'] = '1024';
+        $config['file_name'] = time();
+        $this->load->library('upload', $config);
+        if ($this->upload->do_upload('imgFile')) {
+            $data = $this->upload->data();
+            $res = array(
+                'error' => 0,
+                'url' => site_url('/uploads/kindeditor/'.$data['file_name'])
+            );
+        } else {
+            $res = array(
+                'error' => 1,
+                'message' => $this->upload->display_errors(),
+            );
+        }
+
+        echo json_encode($res);
+    }
 }
 
 /* End of file admin/admin.php */
