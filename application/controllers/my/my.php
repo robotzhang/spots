@@ -4,12 +4,12 @@ class My extends CI_Controller {
     public function __construct()
     {
         parent::__construct();
-        $this->layout->setLayout('layout/my');
+        //$this->layout->setLayout('layout/my');
     }
 
     public function index()
     {
-        $this->layout->view('my/show.php');
+        $this->layout->view('my/index.php');
     }
 }
 

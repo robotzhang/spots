@@ -28,22 +28,18 @@ $action_next = $this->uri->segment(2);
   ?>
 </head>
 
-<body>
-  <?php $this->load->view('common/header.php'); ?>
-
-  <div class="site">
-      <div class="container">
-          <div class="row">
-              <div class="span3">
-                  <?php $this->load->view('admin/_menu'); ?>
-              </div>
-              <div class="span9">
-                  <?php echo $layout['content']; ?>
-              </div>
+<body id="my" style="background: url(<?php echo base_url('static/images/my/bg_body.jpg') ?>) 0 0 repeat;">
+    <div class="site" style="background: url(<?php echo base_url('static/images/my/bg_site.jpg') ?>) center 0 no-repeat;">
+      <div class="container" style="height: 600px;">
+          <div style="margin-top: -30px; margin-bottom: 20px;">
+              <a href="<?php echo site_url('') ?>"><img src="<?php echo base_url('static/images/logo.png') ?>"></a>
+          </div>
+          <div style="border: #E6E6E6 1px solid; border-radius: 5px; padding: 15px;">
+              <?php echo $layout['content']; ?>
           </div>
       </div>
-  </div>
+    </div>
 
-  <?php $this->load->view('common/footer.php'); ?>
+    <?php $this->load->view('common/footer.php'); ?>
 </body>
 </html>
