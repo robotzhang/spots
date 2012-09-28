@@ -9,8 +9,11 @@
  ----------------------------------------------------*/
 class MY_Model extends CI_Model
 {
-    var $table = ''; //表名
+    var $table = ''; // 表名
     var $last_query_number = 0; // 上次查询的结果总数
+    var $validation = array(); // 验证
+    var $errors = array(); // 出错信息
+
     public function __construct() {
         parent::__construct();
     }
@@ -26,14 +29,14 @@ class MY_Model extends CI_Model
         if ($this->db->field_exists('updated_at', $this->table)) {
             $entity['updated_at'] = date('Y-m-d H:i:s');
         }
-        return $this->db->insert($this->table, $entity);
+        return $this->validation($entity, 'add') === TRUE ? $this->db->insert($this->table, $entity) : FALSE;
     }
 
     public function update($entity) {
         if ($this->db->field_exists('updated_at', $this->table)) {
             $entity['updated_at'] = date('Y-m-d H:i:s');
         }
-        return $this->db->where('id', $entity['id'])->update($this->table, $entity);
+        return $this->validation($entity, 'update') === TRUE ? $this->db->where('id', $entity['id'])->update($this->table, $entity) : FALSE;
     }
 
     public function get($where = array(), $page = 1, $offset = 20)
@@ -57,6 +60,44 @@ class MY_Model extends CI_Model
     public function delete($id)
     {
         return $this->db->where(array('id' => $id))->delete($this->table);
+    }
+
+    /**
+     * 验证数据有效性，集成codeigniter原生的form验证
+     * @param $data 待验证的数据
+     * @param $type update:表示只验证待更新的数据
+     * 				add或其他:表示全验证
+     * @return 验证成功则返回TRUE
+     * 		   验证失败返回出错的信息
+     */
+    public function validation($data, $type = 'update')
+    {
+        $this->load->library('form_validation');
+        $this->form_validation->set_error_delimiters('', '');
+        $rules = array();
+        foreach ($this->validation as $item) {
+            if ($type == 'update') {
+                // 为了兼容spot[name]这种情况
+                if (in_array(str_replace(']', '', substr($item['field'], strpos($item['field'], '[')+1)), array_keys((array)$data))) {
+                    $rules[] = $item;
+                }
+            } else {
+                $rules[] = $item;
+            }
+        }
+
+        $this->form_validation->set_rules($rules);
+        if ($this->form_validation->run() === FALSE) {
+            foreach($this->validation as $item) { // 将验证的错误绑定上去
+                $error = form_error($item['field']);
+                if (!empty($error)) {
+                    $this->errors[$item['field']] = $error;
+                }
+            }
+            return FALSE;
+        } else {
+            return TRUE;
+        }
     }
 }
 

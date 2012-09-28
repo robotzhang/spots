@@ -1,7 +1,12 @@
-<form class="form-inline" method="post" action="<?php echo site_url(empty($spot) ? 'admin/spot/create' : 'admin/spot/update') ?>">
+<form class="form-inline" method="post" action="<?php echo site_url(empty($spot->id) ? 'admin/spots/create' : 'admin/spots/update') ?>">
     <fieldset>
-        <legend><?php echo empty($spot) ? '新建' : '编辑' ?>景点</legend>
-        <input type="hidden" name="handbook[id]" value="<?php if (!empty($spot)) echo $spot->id ?>" />
+        <legend><?php echo empty($spot->id) ? '新建' : '编辑' ?>景点</legend>
+        <?php if (!empty($spot->errors)): ?>
+        <div class="errors mb20">
+            <?php echo join('<br>', $spot->errors) ?>
+        </div>
+        <?php endif ?>
+        <input type="hidden" name="spot[id]" value="<?php if (!empty($spot->id)) echo $spot->id ?>" />
         <div class="control-group">
             <label for="spot[name]" class="control-label">景点名称</label>
             <div class="controls">
@@ -16,7 +21,7 @@
         </div>
 
         <div class="form-actions">
-            <button class="btn btn-success" type="submit"><?php echo empty($spot) ? '创建' : '更新' ?></button>
+            <button class="btn btn-success" type="submit"><?php echo empty($spot->id) ? '创建' : '更新' ?></button>
             <button class="btn" type="reset">取消</button>
         </div>
     </fieldset>
