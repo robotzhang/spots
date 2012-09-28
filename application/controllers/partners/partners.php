@@ -5,9 +5,15 @@ class Partners extends CI_Controller {
         parent::__construct();
         //$this->layout->setLayout('layout/partners');
     }
+
 	public function index() {
         $this->layout->view('partners/index');
 	}
+
+    public function login() {
+        $this->layout->setLayout('layout/default');
+        $this->layout->view('partners/login');
+    }
 }
 
 /* End of file admin/admin.php */

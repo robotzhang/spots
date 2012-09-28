@@ -9,5 +9,6 @@
         <li><a <?php if ($action_next=='handbooks') echo 'class="selected"' ?> href="<?php echo site_url('admin/handbooks') ?>">手册维护</a></li>
         <li><a <?php if ($action_next=='spots') echo 'class="selected"' ?> href="<?php echo site_url('admin/spots') ?>">景点维护</a></li>
         <li><a <?php if ($action_next=='users') echo 'class="selected"' ?> href="<?php echo site_url('admin/users') ?>">用户维护</a></li>
+        <li><a <?php if ($action_next=='partners') echo 'class="selected"' ?> href="<?php echo site_url('admin/partners') ?>">合作景区</a></li>
     </ul>
 </div>

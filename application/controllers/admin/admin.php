@@ -16,6 +16,27 @@ class Admin extends CI_Controller {
 
     }
 
+    public function login() {
+        $this->layout->setLayout('layout/default');
+        $admin_post = $this->input->post('admin');
+        if (empty($_POST)) {
+            return $this->layout->view('admin/login');
+        }
+        $this->load->model('Admin_model', 'admin');
+        $admin = current($this->admin->get(array('name' => $admin_post['name'], 'password' => md5($admin_post['password']))));
+        if (empty($admin)) {
+            $this->layout->view('admin/login', array('errors' => '用户名或密码错误！'));
+        } else {
+            $this->session->set_userdata('admin', $admin);
+            redirect('admin');
+        }
+    }
+
+    public function logout() {
+        $this->session->unset_userdata('admin');
+        redirect('admin/login');
+    }
+
     public function upload() {
         $config['upload_path'] = getcwd().'./uploads/kindeditor';
         $config['allowed_types'] = 'gif|jpg|png';
