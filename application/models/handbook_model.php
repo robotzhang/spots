@@ -8,12 +8,22 @@ class Handbook_model extends MY_Model
     );
 
     // 景点手册是否被使用
-    public function is_used($unique_id) {
-        $handbooks = $this->get(array(
-            'unique_id' => $unique_id,
-            'is_used' => 'N'
-        ));
-        return count($handbooks) > 0 ? false : true;
+    public function can_used($unique_id) {
+        if (empty($unique_id)) {
+            $this->errors['unique_id'] = '请输入手册id';
+            return false;
+        }
+        $handbook = current($this->find_by('unique_id', $unique_id));
+        if (empty($handbook)) {
+            $this->errors['unique_id'] = '非法的手册id';
+            return false;
+        }
+        if ($handbook->is_used == 'Y') {
+            $this->errors['unique_id'] = '景点手册id已经被使用';
+            return false;
+        }
+
+        return true;
     }
 }
 

@@ -16,8 +16,8 @@ class Users extends CI_Controller {
         $user['ip'] = $this->input->ip_address();
         $this->load->model('Handbook_model', 'handbook');
         $handbook = $this->input->post('handbook');
-        if ($this->handbook->is_used($handbook['unique_id'])) { // 景点手册已经被使用
-            $this->user->errors['handbook[unique_id]'] = '景点手册id已经被使用';
+        if (!$this->handbook->can_used($handbook['unique_id'])) { // 验证景点手册
+            $this->user->errors['handbook[unique_id]'] = $this->handbook->errors['unique_id'];
         }
         if (empty($this->user->errors) && $this->user->create($user)) {
             // 设置景点手册的user_id
@@ -31,7 +31,7 @@ class Users extends CI_Controller {
             }
         }
 
-        $this->layout->view('users/activation_form', array('user' => $user, 'errors' => $this->user->errors));
+        $this->layout->view('users/activation_form', array('user' => $user, 'handbook' => $handbook, 'errors' => $this->user->errors));
 	}
 
     // 验证手机
