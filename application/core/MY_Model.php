@@ -32,11 +32,25 @@ class MY_Model extends CI_Model
         return $this->validation($entity, 'add') === TRUE ? $this->db->insert($this->table, $entity) : FALSE;
     }
 
-    public function update($entity) {
+    public function update($entity, $where=array()) {
+        if (empty($where)) {
+            $where = array('id' => $entity['id']);
+        }
+        // 未变化的数据不更新
+        $data = current($this->get($where));
+        foreach ($entity as $key => $value) {
+            if ($data->{$key} == $value) {
+                unset($entity[$key]);
+            }
+        }
+        if (empty($entity)) {
+            return true;
+        }
+
         if ($this->db->field_exists('updated_at', $this->table)) {
             $entity['updated_at'] = date('Y-m-d H:i:s');
         }
-        return $this->validation($entity, 'update') === TRUE ? $this->db->where('id', $entity['id'])->update($this->table, $entity) : FALSE;
+        return $this->validation($entity, 'update') === TRUE ? $this->db->where($where)->update($this->table, $entity) : FALSE;
     }
 
     public function get($where = array(), $page = 1, $offset = 20)

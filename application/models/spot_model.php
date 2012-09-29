@@ -4,7 +4,7 @@ class Spot_model extends MY_Model
 {
     var $table = 'spots';
     var $validation = array(
-        array('field' => 'spot[name]', 'label' => '景点名称', 'rules' => 'trim|required|max_length[255]|min_length[4]'),
+        array('field' => 'spot[name]', 'label' => '景点名称', 'rules' => 'trim|required|max_length[255]|min_length[4]|is_unique[spots.name]'),
         array('field' => 'spot[introduce]', 'label' => '景点简介', 'rules' => 'required')
     );
 }

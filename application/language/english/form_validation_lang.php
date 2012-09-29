@@ -22,6 +22,7 @@ $lang['is_natural_no_zero']	= "%s必须是大于0的自然数.";
 $lang['decimal']			= "%s必须包含小数.";
 $lang['less_than']			= "%s必须小于%s.";
 $lang['greater_than']		= "%s必须大于%s.";
+$lang['is_unique']		    = "%s已经被使用.";
 
 
 /* End of file form_validation_lang.php */

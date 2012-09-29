@@ -1,4 +1,4 @@
-<form class="form-horizontal" method="post" action="<?php echo site_url('login') ?>">
+<form class="form-horizontal" method="post" action="<?php echo site_url('users/activation') ?>">
     <fieldset>
         <legend>激活您的景点手册</legend>
         <div class="control-group">
@@ -10,11 +10,11 @@
         <div class="control-group">
             <label for="user[drive]" class="control-label"><span class="red_star">*</span>驾驶证号</label>
             <div class="controls">
-                <input type="password" name="user[drive]" value="">
+                <input type="text" name="user[drive]" value="">
             </div>
         </div>
         <div class="control-group">
-            <label for="user[password]" class="control-label"><span class="red_star">*</span>密码</label>
+            <label for="user[password]" class="control-label"><span class="red_star">*</span>登录密码</label>
             <div class="controls">
                 <input type="password" name="user[password]" value="">
             </div>
@@ -28,7 +28,7 @@
         <div class="control-group">
             <label for="user[mobile]" class="control-label"><span class="red_star">*</span>手机号码</label>
             <div class="controls">
-                <input type="password" name="user[mobile]" value="">
+                <input type="text" name="user[mobile]" value="">
             </div>
         </div>
         <div class="control-group">
