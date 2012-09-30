@@ -27,7 +27,7 @@ class Users extends CI_Controller {
                 $code =  rand(1001, 9999);
                 $this->session->set_userdata('code', $code);
                 // 进入第二步，输入手机码
-                return redirect(site_url(sprintf("users/check_mobile?mobile=%s&unique_id=%s&code=%d", $user['mobile'], $handbook['unique_id'], $code)));
+                return redirect(site_url(sprintf("users/check_mobile?mobile=%s&unique_id=%s", $user['mobile'], $handbook['unique_id'])));
             } else {
                 echo  '更新handbook出错';
             }
