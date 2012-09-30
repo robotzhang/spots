@@ -72,7 +72,20 @@ class Users extends CI_Controller {
 
     // 登陆到系统
     public function login() {
-        $this->layout->view('users/login');
+        if (empty($_POST)) {
+            return $this->layout->view('users/login');
+        }
+        $user = $this->input->post('user');
+        if (count($this->user->get(array('mobile' => $user['mobile'], 'password' => md5($user['password'])))) > 0) {
+            redirect('my');
+        } else {
+            return $this->layout->view('users/login', array('user' => $user, 'errors' => array('用户名或密码错误')));
+        }
+    }
+
+    public function logout() {
+        $this->session->unset_userdata('user');
+        redirect('login');
     }
 }
 

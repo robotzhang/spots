@@ -9,6 +9,7 @@ class My extends CI_Controller {
 
     public function index()
     {
+        // ------- 验证用户手机是否验证，手册id是否存在
         $this->layout->view('my/index.php');
     }
 }

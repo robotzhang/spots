@@ -12,13 +12,13 @@
             <input type="hidden" name="url" value="<?php echo isset($_GET['url']) ? $_GET['url'] : site_url()?>" />
             <?php if (!empty($errors)): ?>
             <div class="control-group">
-                <div class="errors"><?php echo $errors['all'] ?></div>
+                <div class="errors"><?php echo join('<br>', $errors) ?></div>
             </div>
             <?php endif ?>
             <div class="control-group">
-                <label for="user[email]" class="control-label">手 机</label>
+                <label for="user[mobile]" class="control-label">手 机</label>
                 <div class="controls">
-                    <input type="text" name="user[email]" value="">
+                    <input type="text" name="user[mobile]" value="">
                 </div>
             </div>
             <div class="control-group">
