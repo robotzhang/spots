@@ -9,6 +9,14 @@ class User_model extends MY_Model
         array('field' => 'user[password]', 'label' => '登录密码', 'rules' => 'required'),
         array('field' => 'user[repassword]', 'label' => '确认密码', 'rules' => 'matches[user[password]]')
     );
+
+    public function create($entity) {
+        if ($this->validation($entity, 'add') === true) {
+            $entity['password'] = md5($entity['password']);
+            unset($entity['repassword']);
+        }
+        return parent::create($entity);
+    }
 }
 
 /* End of file topic_model.php */

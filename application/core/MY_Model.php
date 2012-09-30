@@ -38,6 +38,10 @@ class MY_Model extends CI_Model
         }
         // 未变化的数据不更新
         $data = current($this->get($where));
+        if (empty($data)) {
+            $this->errors['update'] = '要更新的数据不存在';
+            return false;
+        }
         foreach ($entity as $key => $value) {
             if ($data->{$key} == $value) {
                 unset($entity[$key]);
@@ -50,6 +54,7 @@ class MY_Model extends CI_Model
         if ($this->db->field_exists('updated_at', $this->table)) {
             $entity['updated_at'] = date('Y-m-d H:i:s');
         }
+
         return $this->validation($entity, 'update') === TRUE ? $this->db->where($where)->update($this->table, $entity) : FALSE;
     }
 
@@ -98,6 +103,10 @@ class MY_Model extends CI_Model
             } else {
                 $rules[] = $item;
             }
+        }
+
+        if (empty($rules)) { // 验证规则为空则说明必然通过验证
+            return TRUE;
         }
 
         $this->form_validation->set_rules($rules);

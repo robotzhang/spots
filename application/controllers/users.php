@@ -27,7 +27,9 @@ class Users extends CI_Controller {
                 $code =  rand(1001, 9999);
                 $this->session->set_userdata('code', $code);
                 // 进入第二步，输入手机码
-                redirect(site_url(sprintf("users/check_mobile?mobile=%d&unique_id=%d", $user['mobile'], $handbook['unique_id'])));
+                return redirect(site_url(sprintf("users/check_mobile?mobile=%s&unique_id=%s&code=%d", $user['mobile'], $handbook['unique_id'], $code)));
+            } else {
+                echo  '更新handbook出错';
             }
         }
 
@@ -37,13 +39,32 @@ class Users extends CI_Controller {
     // 验证手机
     public function check_mobile() {
         if (empty($_POST)) {
-            return $this->layout->view('users/check_mobile');
+            $form = array('mobile'=>$this->input->get('mobile'), 'unique_id' => $this->input->get('unique_id'));
+            return $this->layout->view('users/check_mobile', array('form' => $form));
+        }
+        $form = array('mobile'=>$this->input->post('mobile'), 'unique_id' => $this->input->post('unique_id'));
+        $errors = array();
+        // 验证码是否正确
+        if ($this->input->post('code') != $this->session->userdata('code')) {
+            $errors['code'] = '验证码输入错误';
         }
         // 通过验证，设置handbook为已使用
-        $this->load->model('Handbook_model', 'handbook');
-        $this->handbook->update(array('is_used' => 'Y'), array('unique_id' => $this->input->get('unique_id')));
-        $this->user->update(array('is_validation' => 'Y'), array('mobile' => $this->input->get('mobile')));
-        redirect(site_url('my')); // 跳到我的主页
+        if (empty($errors)) {
+            $this->load->model('Handbook_model', 'handbook');
+            if (!$this->user->update(array('is_validation' => 'Y'), array('mobile' => $form['mobile']))) {
+                $errors['user'] = join('<br>', $this->user->errors);
+            } else {
+                if (!$this->handbook->update(array('is_used' => 'Y'), array('unique_id' => $form['unique_id']))) {
+                    $errors['handbook'] = join('<br>', $this->handbook->errors);
+                }
+            }
+        }
+        if (empty($errors)) {
+            $this->session->set_userdata('user', current($this->user->find_by('mobile', $form['mobile'])));
+            redirect(site_url('my')); // 跳到我的主页
+        } else {
+            return $this->layout->view('users/check_mobile', array('form' => $form, 'errors' => $errors));
+        }
     }
 
     // 登陆到系统

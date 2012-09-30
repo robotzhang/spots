@@ -3,15 +3,9 @@
         <div class="pull-left"><a href="/"><img src="<?php echo base_url('static/images/logo.png') ?>"/> 聪明你的旅程</a></div>
         <div class="member clearfix pull-right">
             <?php if (is_login()): ?>
-                <a href="javascript:void(0);" class="show_drop_menu">
-                    欢迎：<?php echo substr(current_user()->email, 0, strpos(current_user()->email, '@')); ?>
-                    <i class="icon-chevron-down"></i>
-                </a>
-                <ul class="dropdown-menu">
-                    <li><a href="javascript:void(0);"><i class="icon-inbox"></i> 我的订单</a></li>
-                    <li class="divider"></li>
-                    <li><a href="<?php echo site_url('logout?url='.current_url()) ?>"><i class="icon-off"></i> 退出</a></li>
-                </ul>
+                <a href="javascript:void(0);">欢迎 <i class="icon-edit"></i><?php echo current_user()->nickname; ?></a>
+                -
+                <a href="<?php echo site_url('logout?url='.current_url()) ?>">退出 <i class="icon-off"></i></a>
             <?php else: ?>
                 <a href="<?php echo site_url('register?url='.current_url()) ?>">激活</a> -
                 <a href="<?php echo site_url('login?url='.current_url()) ?>">登录</a>

@@ -1,8 +1,13 @@
-<form class="form-horizontal" method="post" action="<?php echo site_url('users/activation') ?>">
+<form class="form-horizontal" method="post" action="<?php echo site_url('users/check_mobile') ?>">
     <fieldset>
         <legend>一切都准备好了，验证手机有效性</legend>
-        <input type="hidden" name="mobile" value="<?php echo $this->input->get('mobile') ?>" />
-        <input type="hidden" name="unique_id" value="<?php echo $this->input->get('unique_id') ?>" />
+        <input type="hidden" name="mobile" value="<?php echo $form['mobile'] ?>" />
+        <input type="hidden" name="unique_id" value="<?php echo $form['unique_id'] ?>" />
+        <?php if (!empty($errors)): ?>
+        <div class="control-group">
+            <div class="errors"><?php echo join('<br>', $errors) ?></div>
+        </div>
+        <?php endif ?>
         <div class="control-group">
             <label for="code" class="control-label"><span class="red_star">*</span>验证码</label>
             <div class="controls">

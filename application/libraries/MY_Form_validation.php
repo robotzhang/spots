@@ -50,7 +50,36 @@ class MY_Form_validation extends CI_Form_validation
             return TRUE;  
         }  
 	}
- }
+
+    /*CI不支持$_POST[user[repassword]]的match，重新以便支持*/
+    function matches($str, $field) {
+        if (strpos($field,'[') !== FALSE) {
+            $field_arr = explode('[', str_replace(']', '', $field));
+            if (!isset($_POST[$field_arr[0]])) {
+                return FALSE;
+            }
+            $field_val = $this->get_arr_field_val($field_arr, $_POST[$field_arr[0]]);
+            return ($str !== $field_val) ? FALSE : TRUE;
+        }
+        if (!isset($_POST[$field])) {
+            return FALSE;
+        }
+        $field = $_POST[$field];
+        return ($str !== $field) ? FALSE : TRUE;
+    }
+
+    function get_arr_field_val($arr, $post_val) {
+        for ($i = 0; $i < count($arr); $i++) {
+            if (isset($arr[$i + 1])) {
+                if (isset ($post_val[$arr[$i + 1]])) {
+                    $post_val = $post_val[$arr[$i + 1]];
+                }
+            }
+        }
+        return $post_val;
+    }
+
+}
 
 /* End of file MY_Form_validation.php */
 /* Location: ./application/core/MY_Form_validation.php */
