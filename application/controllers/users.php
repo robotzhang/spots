@@ -26,6 +26,8 @@ class Users extends CI_Controller {
                 // 发送验证码到手机
                 $code =  rand(1001, 9999);
                 $this->session->set_userdata($user['mobile'].'_code', $code);
+                $this->load->library('message');
+                $this->message->mobile($user['mobile'], '您好!您在uto168上的激活码为'.$code.'.请尽快完成激活');
                 // 进入第二步，输入手机码
                 return redirect(site_url(sprintf("users/check_mobile?mobile=%s&unique_id=%s", $user['mobile'], $handbook['unique_id'])));
             } else {
