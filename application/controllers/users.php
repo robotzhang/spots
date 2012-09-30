@@ -25,7 +25,7 @@ class Users extends CI_Controller {
             if ($this->handbook->update(array('user_id' => $user_id), array('unique_id' => $handbook['unique_id']))) {
                 // 发送验证码到手机
                 $code =  rand(1001, 9999);
-                $this->session->set_userdata('code', $code);
+                $this->session->set_userdata($user['mobile'].'_code', $code);
                 // 进入第二步，输入手机码
                 return redirect(site_url(sprintf("users/check_mobile?mobile=%s&unique_id=%s", $user['mobile'], $handbook['unique_id'])));
             } else {
@@ -45,7 +45,7 @@ class Users extends CI_Controller {
         $form = array('mobile'=>$this->input->post('mobile'), 'unique_id' => $this->input->post('unique_id'));
         $errors = array();
         // 验证码是否正确
-        if ($this->input->post('code') != $this->session->userdata('code')) {
+        if ($this->input->post('code') != $this->session->userdata($form['mobile'].'_code')) {
             $errors['code'] = '验证码输入错误';
         }
         // 通过验证，设置handbook为已使用
@@ -61,6 +61,7 @@ class Users extends CI_Controller {
         }
         if (empty($errors)) {
             $this->session->set_userdata('user', current($this->user->find_by('mobile', $form['mobile'])));
+            $this->session->unset_userdata($form['mobile'].'_code');
             redirect(site_url('my')); // 跳到我的主页
         } else {
             return $this->layout->view('users/check_mobile', array('form' => $form, 'errors' => $errors));
