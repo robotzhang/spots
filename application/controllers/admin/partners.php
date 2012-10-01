@@ -18,6 +18,7 @@ class Partners extends CI_Controller {
         }
 
         $partner = $this->input->post('partner');
+        $partner['password'] = md5($partner['password']);
         if ($this->partner->create($partner)) {
             redirect('admin/partners/index');
         } else {

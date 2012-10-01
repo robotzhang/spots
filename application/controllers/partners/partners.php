@@ -12,7 +12,18 @@ class Partners extends CI_Controller {
 
     public function login() {
         $this->layout->setLayout('layout/mini');
-        $this->layout->view('partners/login');
+        if (empty($_POST)) {
+            return $this->layout->view('partners/login');
+        }
+        $this->load->model('Partner_model', 'partner');
+        $partner = $this->input->post('partner');
+        $partners = $this->partner->get(array('name' => $partner['name'], 'password' => md5($partner['password'])));
+        if (count($partners) > 0) {
+            $this->session->set_userdata('partner', current($partners));
+            return redirect('partners');
+        } else {
+            return $this->layout->view('partners/login', array('partner' => $partner, 'errors' => '账号或密码错误'));
+        }
     }
 }
 
