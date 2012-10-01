@@ -11,7 +11,7 @@ class Partners extends CI_Controller {
 	}
 
     public function login() {
-        $this->layout->setLayout('layout/default');
+        $this->layout->setLayout('layout/mini');
         $this->layout->view('partners/login');
     }
 }

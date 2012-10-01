@@ -1,0 +1,41 @@
+body { font-size: 14px; background: url(../images/partner/bg.jpg) 0 0 repeat-x; background-color: #2EB8E6; height: 700px; }
+.site { background: url(../images/partner/bg_c.jpg) center 0 no-repeat; height: 410px; padding-top: 290px; }
+.users { width: 280px; margin: 0 auto; margin-top: 20px; }
+.users form input { width: 160px; padding: 4px; background-color: #FFFFFF; border: 1px solid #CCCCCC; border-radius: 3px 3px 3px 3px; color: #555555; display: inline-block; font-size: 13px; height: 18px; line-height: 18px; }
+.users form label { font-weight: bold; }
+.users form .item { margin: 15px auto; margin-left: 50px; margin-right: 10px; }
+.btn { background-color: #F5F5F5;
+    background-image: -moz-linear-gradient(center top , #FFFFFF, #E6E6E6);
+    background-repeat: repeat-x;
+    border-color: #E6E6E6 #E6E6E6 #B3B3B3;
+    border-image: none;
+    border-radius: 4px 4px 4px 4px;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 1px 2px rgba(0, 0, 0, 0.05);
+    color: #333333;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 13px;
+    line-height: 18px;
+    margin-bottom: 0;
+    padding: 4px 10px;
+    text-align: center;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+    vertical-align: middle;
+}
+.btn:hover { background-color: #E6E6E6;
+    background-position: 0 -15px;
+    color: #333333;
+    text-decoration: none;
+}
+.btn.active, .btn:active {
+    background-color: #E6E6E6;
+    background-image: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15) inset, 0 1px 2px rgba(0, 0, 0, 0.05);
+    outline: 0 none;
+}
+
+.footer { color: #fff; font-size: 13px; text-align: center; }
+.footer a { color: #fff; font-size: 13px; text-decoration: none; }
+.footer a:hover { text-decoration: underline; }
