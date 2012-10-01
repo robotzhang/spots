@@ -10,6 +10,12 @@
 </head>
 
 <body>
-    <?php echo $layout['content']; ?>
+    <div class="site">
+        <?php echo $layout['content']; ?>
+    </div>
+    <div class="footer">
+        ©2012 uto168.com All rights reserved.
+        <a href="<?php echo site_url() ?>">返回网站首页</a>
+    </div>
 </body>
 </html>
