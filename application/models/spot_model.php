@@ -7,6 +7,10 @@ class Spot_model extends MY_Model
         array('field' => 'spot[name]', 'label' => '景点名称', 'rules' => 'trim|required|max_length[255]|min_length[4]|is_unique[spots.name]'),
         array('field' => 'spot[introduce]', 'label' => '景点简介', 'rules' => 'required')
     );
+
+    public function top10() {
+        return $this->db->limit(10)->order_by('rand()')->get($this->table)->result();
+    }
 }
 
 /* End of file spot_model.php */

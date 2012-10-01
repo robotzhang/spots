@@ -45,9 +45,8 @@ $action_next = $this->uri->segment(2);
     </div>
 
     <div class="site">
-        <div class="container">
+        <div class="container clearfix">
             <div class="row">
-
                 <div class="span9">
                     <div class="content">
                         <?php echo $layout['content']; ?>
