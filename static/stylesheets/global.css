@@ -49,3 +49,12 @@ blockquote .blockquote_right { background: url(../images/common/blockquote1.png)
 .fs14 { font-size: 14px; }
 .fs16 { font-size: 16px; }
 .fs18 { font-size: 18px; }
+
+#partners { background: url(../images/partner/partner_bg.jpg) center 0 no-repeat; background-color: #BEE1F5; }
+#partners .header { width: 100%; color: #fff; top: 0; left: 0; position: fixed; _position: absolute; z-index: 999; height: 35px; line-height: 35px; background: url(../images/partner/bg_header.png) 0 0 repeat-x; }
+#partners .header a { color: #fff; }
+#partners .footer { background: none; border: none; box-shadow: none; }
+#partners .site { padding-top: 55px; padding-bottom: 15px; }
+#partners .site .container { background: url(../images/partner/repeat_bg_y.png) 0 0 repeat-y; background-position: -950px 0; border-radius: 5px; }
+#partners .side_module { padding: 20px 0;padding-right: 20px; }
+#partners .content { padding: 20px; background-color: #fff; border-radius: 5px 0 0 5px; border: #D3DEF9 1px solid; }

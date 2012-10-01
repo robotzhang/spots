@@ -8,6 +8,14 @@ if ( ! function_exists('current_user'))
     }
 }
 
+if ( ! function_exists('current_partner'))
+{
+    function current_partner() {
+        $CI = & get_instance();
+        return $CI->session->userdata('partner');
+    }
+}
+
 if ( ! function_exists('set_current_user'))
 {
     function set_current_user($user) {

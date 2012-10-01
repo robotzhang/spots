@@ -3,7 +3,7 @@
 class Partners extends CI_Controller {
     public function __construct() {
         parent::__construct();
-        //$this->layout->setLayout('layout/partners');
+        $this->layout->setLayout('layout/partners');
     }
 
 	public function index() {
@@ -24,6 +24,11 @@ class Partners extends CI_Controller {
         } else {
             return $this->layout->view('partners/login', array('partner' => $partner, 'errors' => '账号或密码错误'));
         }
+    }
+
+    public function logout() {
+        $this->session->unset_userdata('partner');
+        redirect('partners/login');
     }
 }
 
