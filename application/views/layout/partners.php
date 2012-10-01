@@ -48,14 +48,13 @@ $action_next = $this->uri->segment(2);
         <div class="container clearfix">
             <div class="row">
                 <div class="span9">
-                    <div class="content">
+                    <div class="content" style="min-height: 500px;">
                         <?php echo $layout['content']; ?>
                     </div>
                 </div>
                 <div class="span3">
                     <div class="side_module">
-                        <div><a style="color: #1992C9;" href="javascript:void(0);"><?php echo current_partner()->name ?></a></div>
-                        <div class="fs12">于<?php echo date('Y-m-d', strtotime(current_partner()->created_at)) ?>创建</div>
+                        <?php $this->load->view('partners/_menu'); ?>
                     </div>
                 </div>
             </div>
