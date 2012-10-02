@@ -13,7 +13,8 @@ class Tickets extends CI_Controller {
         $this->load->model('Ticket_model', 'ticket');
         $ticket = $this->input->post('ticket');
         if ($this->ticket->create($ticket, $this->input->post('mobile'))) {
-            echo '成功售出';
+            $this->session->set_flashdata('message', '门票成功售出.');
+            redirect('partners/tickets/sale');
         } else {
             $data = array(
                 'spots' => $this->get_spots(),

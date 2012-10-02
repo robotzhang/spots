@@ -35,3 +35,17 @@
         </div>
     </fieldset>
 </form>
+
+<?php $message = $this->session->flashdata('message'); ?>
+<?php if (!empty($message)): ?>
+<div class="flash_message"><?php echo $message; ?></div>
+<script>
+    $(document).ready(function(){
+        $('.flash_message').animate({top: 1},function(){
+            setTimeout(function() {
+                $('.flash_message').fadeOut();
+            }, 1000)
+        });
+    });
+</script>
+<?php endif ?>
