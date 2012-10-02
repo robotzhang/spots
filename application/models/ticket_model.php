@@ -53,6 +53,32 @@ class Ticket_model extends MY_Model
         }
         return $tickets;
     }
+
+    // 统计给定景点的一定时间内售出票数量
+    public function count_for_spots($spots, $time_start=null, $time_end=null) {
+        if (empty($time_start)) { // 默认是一周内的数据
+            $time_start = date('Y-m-d 00:00:00', mktime(0,0,0,date("m"),date("d")-7,date("Y")));
+        }
+        if (empty($time_end)) {
+            $time_end = date('Y-m-d 23:59:59');
+        }
+        $spot_ids = array();
+        foreach ($spots as $spot) {
+            $spot_ids[] = $spot->id;
+        }
+        $sql = "SELECT COUNT(*) AS count, spot_id FROM tickets WHERE spot_id IN(?) AND created_at > ? AND created_at < ?";
+        $counts = $this->db->query($sql, array(join(',', $spot_ids), $time_start, $time_end))->result();
+        foreach ($spots as $spot) {
+            foreach ($counts as $item) {
+                if ($item->spot_id == $spot->id) {
+                    $spot->ticket_counts = $item->count;
+                    break;
+                }
+            }
+        }
+
+        return $spots;
+    }
 }
 
 /* End of file ticket_model.php */
