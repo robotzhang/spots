@@ -62,7 +62,7 @@ class Users extends CI_Controller {
             }
         }
         if (empty($errors)) {
-            $this->session->set_userdata('user', current($this->user->find_by('mobile', $form['mobile'])));
+            set_current_user(current($this->user->find_by('mobile', $form['mobile'])));
             $this->session->unset_userdata($form['mobile'].'_code');
             redirect(site_url('my')); // 跳到我的主页
         } else {
@@ -76,7 +76,9 @@ class Users extends CI_Controller {
             return $this->layout->view('users/login');
         }
         $user = $this->input->post('user');
-        if (count($this->user->get(array('mobile' => $user['mobile'], 'password' => md5($user['password'])))) > 0) {
+        $users = $this->user->get(array('mobile' => $user['mobile'], 'password' => md5($user['password'])));
+        if (count($users) > 0) {
+            set_current_user(current($users));
             redirect('my');
         } else {
             return $this->layout->view('users/login', array('user' => $user, 'errors' => array('用户名或密码错误')));

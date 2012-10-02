@@ -29,7 +29,7 @@ $action_next = $this->uri->segment(2);
 </head>
 
 <body>
-  <?php $this->load->view('common/header.php'); ?>
+  <?php $this->load->view('admin/_header.php'); ?>
 
   <div class="site">
       <div class="container">

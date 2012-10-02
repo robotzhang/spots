@@ -19,6 +19,7 @@ class Role
 	{
         $admin = $this->CI->session->userdata('admin');
         $partner = $this->CI->session->userdata('partner');
+        $user = current_user();
 		$controller = $this->CI->uri->segment(1);
         $action = $this->CI->uri->segment(2);
 
@@ -30,6 +31,10 @@ class Role
 		}
         if ($controller == 'partners' && empty($partner) && $action != 'login') {
             redirect('partners/login');
+            exit();
+        }
+        if ($controller == 'my' && empty($user)) {
+            redirect('login');
             exit();
         }
 	}
