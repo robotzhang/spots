@@ -7,7 +7,7 @@
                 <a href="<?php echo site_url('admin') ?>">管理系统</a> -
                 <a href="<?php echo site_url('partners') ?>">景区登陆</a> -
                 <a href="<?php echo site_url('about') ?>">关于我们</a> -
-                <a href="<?php echo site_url('about/feedback') ?>">意见反馈</a>
+                <a href="<?php echo site_url('spots') ?>">景点大全</a>
             </div>
         </div>
     </div>
