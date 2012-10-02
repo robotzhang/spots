@@ -7,7 +7,7 @@ class Partners extends CI_Controller {
     }
 
 	public function index() {
-        $this->layout->view('partners/index');
+        redirect(site_url('partners/reports'));
 	}
 
     public function login() {
