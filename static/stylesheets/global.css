@@ -65,4 +65,4 @@ blockquote .blockquote_right { background: url(../images/common/blockquote1.png)
 .timeline .warp { border-left: #DCE5EA 4px solid; margin-left: 2px; padding-bottom: 30px; }
 .timeline .warp:last-child { padding-bottom: 5px; }
 .timeline .warp .red { color: red; }
-.timeline .warp .date { color: #777; }
+.timeline .warp .date { color: #777; font-size: 12px; }
