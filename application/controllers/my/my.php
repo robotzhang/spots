@@ -18,7 +18,12 @@ class My extends CI_Controller {
             }
             return redirect(site_url(sprintf("users/check_mobile?mobile=%s&unique_id=%s") ,current_user()->mobile, $handbook->unique_id));
         }
-        $this->layout->view('my/index.php');
+        $this->load->model('Ticket_model', 'ticket');
+        $this->load->model('Handbook_model', 'handbook');
+        $handbook = current($this->handbook->get(array('user_id' => current_user()->id, 'is_used' => 'Y')));
+        $tickets = $this->ticket->find_by('user_id', current_user()->id);
+        $tickets = $this->ticket->set_spots($tickets);
+        $this->layout->view('my/index.php', array('tickets' => $tickets, 'handbook' => $handbook));
     }
 }
 

@@ -34,6 +34,25 @@ class Ticket_model extends MY_Model
         }
         return parent::create($entity);
     }
+
+    public function set_spots($tickets) {
+        $ids = array();
+        foreach ($tickets as $ticket) {
+            $ids[] = $ticket->spot_id;
+        }
+        $ids = array_unique($ids);
+        $this->load->model('Spot_model', 'spot');
+        $spots = $this->spot->db->where_in('id', join(',', $ids))->get($this->spot->table)->result();
+        foreach ($tickets as $ticket) {
+            foreach ($spots as $spot) {
+                if ($ticket->spot_id == $spot->id) {
+                    $ticket->spot = $spot;
+                    break;
+                }
+            }
+        }
+        return $tickets;
+    }
 }
 
 /* End of file ticket_model.php */

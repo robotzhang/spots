@@ -58,3 +58,11 @@ blockquote .blockquote_right { background: url(../images/common/blockquote1.png)
 #partners .site .container { background: url(../images/partner/repeat_bg_y.png) 0 0 repeat-y; background-position: -950px 0; border-radius: 5px; }
 #partners .side_module { padding: 20px 0;padding-right: 20px; }
 #partners .content { padding: 20px; background-color: #fff; border-radius: 5px 0 0 5px; border: #D3DEF9 1px solid; }
+
+.timeline .item_box { border: 1px solid #DADEE1; border-radius: 5px 5px 5px 5px; box-shadow: 0 1px 2px #B0B3B6; margin-left: 30px; margin-top: -15px; padding: 15px; display: inline-block; zoom: 1; }
+.timeline .item_box .pop-triangle { background: url(../images/common/narrow.png) repeat scroll 0 0 transparent; height: 17px; margin-left: -28px; margin-top: -10px; position: absolute; width: 13px; }
+.timeline .dotted { height: 16px; width: 8px; background: url(../images/common/timeline_dotted.png) 0 0 no-repeat }
+.timeline .warp { border-left: #DCE5EA 4px solid; margin-left: 2px; padding-bottom: 30px; }
+.timeline .warp:last-child { padding-bottom: 5px; }
+.timeline .warp .red { color: red; }
+.timeline .warp .date { color: #777; }
