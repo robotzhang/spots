@@ -9,7 +9,16 @@
 </div>
 <div class="border"></div>
 <ul class="unstyled module_nav">
-    <li <?php if ($action_next=='reports') echo 'class="selected"' ?>><a href="<?php echo site_url('partners/reports') ?>">报表</a></li>
-    <li <?php if ($action_next=='tickets') echo 'class="selected"' ?>><a href="<?php echo site_url('partners/tickets/sale') ?>">售票</a></li>
-    <li <?php if ($action_next=='setting') echo 'class="selected"' ?>><a href="#">设置</a></li>
+    <li <?php if ($action_next=='reports') echo 'class="selected"' ?>>
+        <i class="report" ></i>
+        <a href="<?php echo site_url('partners/reports') ?>">报表</a>
+    </li>
+    <li <?php if ($action_next=='tickets') echo 'class="selected"' ?>>
+        <i class="ticket" ></i>
+        <a href="<?php echo site_url('partners/tickets/sale') ?>">售票</a>
+    </li>
+    <li <?php if ($action_next=='setting') echo 'class="selected"' ?>>
+        <i class="setting" ></i>
+        <a href="#">设置</a>
+    </li>
 </ul>

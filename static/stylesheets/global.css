@@ -60,11 +60,15 @@ blockquote .blockquote_right { background: url(../images/common/blockquote1.png)
 #partners .side_module { padding: 20px 0;padding-right: 20px; }
 #partners .content { padding: 20px; background-color: #fff; border-radius: 5px 0 0 5px; border: #D3DEF9 1px solid; }
 #partners .module_nav { margin-top: 10px; }
-#partners .module_nav li { font-size: 14px; padding: 4px 10px; }
+#partners .module_nav li { padding: 4px 20px; }
 #partners .module_nav li.selected { background-color: #2B95D8; }
 #partners .module_nav li.selected a { color: #FFF; }
-#partners .module_nav li a { color: #1992C9 }
+#partners .module_nav li a { color: #1992C9; font-family: '宋体'; font-size: 14px; }
 #partners .border { border-top: #C1D0F3 1px solid; }
+#partners .module_nav i { width: 18px; height: 16px; display: inline-block; zoom: 1; margin-bottom: -3px; }
+#partners .module_nav i.report { background: url(../images/partner/report.png) 0 center no-repeat; }
+#partners .module_nav i.ticket { background: url(../images/partner/ticket.png) 0 center no-repeat; }
+#partners .module_nav i.setting { background: url(../images/partner/setting.png) 0 center no-repeat; }
 
 .timeline .item_box { border: 1px solid #DADEE1; border-radius: 5px 5px 5px 5px; box-shadow: 0 1px 2px #B0B3B6; margin-left: 30px; margin-top: -15px; padding: 15px; display: inline-block; zoom: 1; }
 .timeline .item_box .pop-triangle { background: url(../images/common/narrow.png) repeat scroll 0 0 transparent; height: 17px; margin-left: -28px; margin-top: -10px; position: absolute; width: 13px; }
