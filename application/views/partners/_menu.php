@@ -17,8 +17,8 @@
         <i class="ticket" ></i>
         <a href="<?php echo site_url('partners/tickets/sale') ?>">售票</a>
     </li>
-    <li <?php if ($action_next=='setting') echo 'class="selected"' ?>>
+    <li <?php if ($action_next=='settings') echo 'class="selected"' ?>>
         <i class="setting" ></i>
-        <a href="#">设置</a>
+        <a href="<?php echo site_url('partners/settings') ?>">设置</a>
     </li>
 </ul>
