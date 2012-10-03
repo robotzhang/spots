@@ -22,7 +22,7 @@ class Partners extends CI_Controller {
             $this->session->set_userdata('partner', current($partners));
             return redirect('partners');
         } else {
-            return $this->layout->view('partners/login', array('partner' => $partner, 'errors' => '账号或密码错误'));
+            return $this->layout->view('partners/login', array('partner' => (object)$partner, 'errors' => '账号或密码错误'));
         }
     }
 
