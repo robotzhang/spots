@@ -13,5 +13,5 @@
     <dt>账号</dt>
     <dd><?php echo current_partner()->name ?></dd>
     <dt>注册时间</dt>
-    <dd><?php echo current_partner()->created_at ?></dd>
+    <dd><?php echo date('Y-m-d', strtotime(current_partner()->created_at)) ?></dd>
 </dl>

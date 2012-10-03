@@ -52,6 +52,9 @@ blockquote .blockquote_right { background: url(../images/common/blockquote1.png)
 .fs16 { font-size: 16px; }
 .fs18 { font-size: 18px; }
 
+.cred { color: red; }
+.cgray { color: gray; }
+
 #partners { background: url(../images/partner/partner_bg.jpg) center 0 no-repeat; background-color: #BEE1F5; }
 #partners .header { width: 100%; color: #fff; top: 0; left: 0; position: fixed; _position: absolute; z-index: 999; height: 35px; line-height: 35px; background: url(../images/partner/bg_header.png) 0 0 repeat-x; }
 #partners .header a { color: #fff; }

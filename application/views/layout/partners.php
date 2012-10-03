@@ -37,7 +37,7 @@ $action_next = $this->uri->segment(2);
             </div>
             <div class="pull-right">
                 欢迎：
-                <a href="javascript:void(0);" title="设置"><?php echo current_partner()->name ?><i class="icon-cog icon-white"></i></a>
+                <a href="<?php echo site_url('partners/settings') ?>" title="设置"><?php echo current_partner()->name ?><i class="icon-cog icon-white"></i></a>
                 -
                 <a href="<?php echo site_url('partners/logout') ?>">退出<i class="icon-off icon-white"></i></a>
             </div>
