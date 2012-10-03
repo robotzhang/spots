@@ -32,7 +32,7 @@ class MY_Model extends CI_Model
         return $this->validation($entity, 'add') === TRUE ? $this->db->insert($this->table, $entity) : FALSE;
     }
 
-    public function update($entity, $where=array()) {
+    public function update($entity, $where=array(), $validation = true) {
         if (empty($where)) {
             $where = array('id' => $entity['id']);
         }
@@ -55,7 +55,11 @@ class MY_Model extends CI_Model
             $entity['updated_at'] = date('Y-m-d H:i:s');
         }
 
-        return $this->validation($entity, 'update') === TRUE ? $this->db->where($where)->update($this->table, $entity) : FALSE;
+        if ($validation) {
+            return $this->validation($entity, 'update') === TRUE ? $this->db->where($where)->update($this->table, $entity) : FALSE;
+        } else {
+            return $this->db->where($where)->update($this->table, $entity);
+        }
     }
 
     public function get($where = array(), $page = 1, $offset = 20)
