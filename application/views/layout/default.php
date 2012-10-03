@@ -39,7 +39,7 @@ $action_next = $this->uri->segment(2);
 
   <?php $this->load->view('common/footer.php'); ?>
 
-  <div class="sider_tool">
+  <div class="sider_tool" style="display: none;">
       <ul class="unstyled">
           <li title="意见反馈"><a href="<?php echo site_url('about/feedback') ?>"><img src="<?php echo base_url('static/images/common/feedback.png') ?>" alt="feedback"/></a></li>
           <li title="返回顶部"><a href="javascript:window.scrollTo(0,0);"><img src="<?php echo base_url('static/images/common/to_top.png') ?>" alt="to_top"/></a></li>

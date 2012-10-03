@@ -18,8 +18,8 @@ class Reports extends CI_Controller {
     }
 
     public function week($week=0) {
-        $time_start = date('Y-m-d 23:59:59', mktime() - (date("w")-1) * 86400);
-        $time_end = date('Y-m-d 00:00:00');
+        $time_start = date('Y-m-d 00:00:00', mktime() - (date("w")-1) * 86400);
+        $time_end = date('Y-m-d 23:59:59');
         $this->get_report_data($time_start, $time_end);
     }
 
