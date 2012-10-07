@@ -16,7 +16,7 @@
         <div class="control-group">
             <label for="partner[password]" class="control-label">密码</label>
             <div class="controls">
-                <input type="password" name="partner[password]" class="input" value="<?php if (!empty($partner)) echo $partner->password ?>">
+                <input type="password" name="partner[password]" class="input" value="">
             </div>
         </div>
 

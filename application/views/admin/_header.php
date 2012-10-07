@@ -1,7 +1,7 @@
 <div class="header">
     <div class="container">
         <div class="pull-left">
-            <a class="fs18" href="<?php echo site_url('') ?>">
+            <a class="fs18" href="<?php echo site_url('admin') ?>">
                 UTO168后台管理系统
             </a>
         </div>

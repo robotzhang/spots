@@ -34,6 +34,11 @@ class Partners extends CI_Controller {
 
     public function update() {
         $partner = $this->input->post('partner');
+        if (empty($partner['password'])) {
+            unset($partner['password']);
+        } else {
+            $partner['password'] = md5($partner['password']);
+        }
         if ($this->partner->update($partner)) {
             redirect('admin/partners/index');
         } else {
