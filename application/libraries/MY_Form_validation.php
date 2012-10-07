@@ -8,9 +8,35 @@
  
 class MY_Form_validation extends CI_Form_validation 
 {
+    var $CI;
 	function __construct($rules = array()){
 		parent::__construct($rules);
+        $this->CI =  &get_instance();
 	}
+
+    /**
+     * 验证手机号码
+     */
+    public function mobile($value) {
+        if(preg_match("/^13[0-9]{1}[0-9]{8}$|15[0189]{1}[0-9]{8}$|189[0-9]{8}$/", $value)){
+            return true;
+        }else{
+            $this->CI->form_validation->set_message('mobile', '%s不正确');
+            return false;
+        }
+    }
+
+    /**
+     * 验证身份证, 15位和18位带x的
+     */
+    public function card($value) {
+        if (preg_match("/^(?:\d{15}|\d{18}|\d{17}X)$/i", $value)){
+            return true;
+        } else{
+            $this->CI->form_validation->set_message('card', '%s不正确');
+            return false;
+        }
+    }
 	
 	/**
 	 * 验证是否存在
