@@ -14,6 +14,26 @@ class Users extends CI_Controller {
         $this->load->library('page', array('total' => $this->user->last_query_number));
 		$this->layout->view('admin/users/index', array('users' => $users, 'pagination' => $this->page->create()));
 	}
+
+    public function edit($id) {
+        $user = current($this->user->find_by('id', $id));
+        $this->layout->view('admin/users/form', array('user' => $user));
+    }
+
+    public function update() {
+        $user = $this->input->post('user');
+        if (empty($user['password'])) {
+            unset($user['password']);
+        } else {
+            $user['password'] = md5($user['password']);
+        }
+        if ($this->user->update($user)) {
+            redirect('admin/users/index');
+        } else {
+            $partner['errors'] = $this->user->errors;
+            return $this->layout->view('admin/users/form', array('user' => (object)$user));
+        }
+    }
 }
 
 /* End of file admin/reports.php */
