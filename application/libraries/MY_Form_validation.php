@@ -18,7 +18,7 @@ class MY_Form_validation extends CI_Form_validation
      * 验证手机号码
      */
     public function mobile($value) {
-        if(preg_match("/^13[0-9]{1}[0-9]{8}$|15[0189]{1}[0-9]{8}$|189[0-9]{8}$/", $value)){
+        if(preg_match("/^1\d{10}$/", $value)){
             return true;
         }else{
             $this->CI->form_validation->set_message('mobile', '%s不正确');
