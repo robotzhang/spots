@@ -24,10 +24,7 @@ class Users extends CI_Controller {
             $user_id = $this->user->db->insert_id();
             if ($this->handbook->update(array('user_id' => $user_id), array('unique_id' => $handbook['unique_id']))) {
                 // 发送验证码到手机
-                $code =  rand(1001, 9999);
-                $this->session->set_userdata($user['mobile'].'_code', $code);
-                $this->load->library('message');
-                $this->message->mobile($user['mobile'], '您好!您在uto168上的激活码为'.$code.'.请尽快完成激活');
+                $this->send_code($user['mobile']);
                 // 进入第二步，输入手机码
                 return redirect(site_url(sprintf("users/check_mobile?mobile=%s&unique_id=%s", $user['mobile'], $handbook['unique_id'])));
             } else {
@@ -70,6 +67,18 @@ class Users extends CI_Controller {
         }
     }
 
+    // 重新发送验证码
+    public function resend() {
+        $mobile = $this->input->post('mobile');
+        $code = $this->session->userdata($mobile.'_code');
+        if (empty($code)) { // 原来的验证码是空，说明是非法请求
+            echo json_encode(array('success' => false, 'message' => '非法的请求！'));
+            return false;
+        }
+        $this->send_code($mobile);
+        echo json_encode(array('success' => true, 'message' => '验证码已重新发送！'));
+    }
+
     // 登陆到系统
     public function login() {
         if (empty($_POST)) {
@@ -88,6 +97,14 @@ class Users extends CI_Controller {
     public function logout() {
         $this->session->unset_userdata('user');
         redirect('login');
+    }
+
+    // 发送验证码
+    private function send_code($mobile) {
+        $code =  rand(1001, 9999);
+        $this->session->set_userdata($mobile.'_code', $code);
+        $this->load->library('message');
+        $this->message->mobile($mobile, '您好!您在uto168上的激活码为'.$code.'.请尽快完成激活');
     }
 }
 

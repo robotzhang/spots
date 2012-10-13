@@ -17,8 +17,43 @@
         <div class="control-group">
             <div class="controls">
                 <button class="btn btn-primary" type="submit">确定</button>
-                <button style="margin-left: 20px;" disabled="disabled">(60)秒之后重新发送</button>
+                <button style="margin-left: 20px;" disabled="disabled" id="timer" type="button">(<span class="second">60</span>)秒之后重新发送</button>
             </div>
         </div>
     </fieldset>
 </form>
+<script>
+    var timer = null;
+    function set_timer() {
+        return  setInterval(function(){
+            var second = parseInt($('#timer .second').text()) - 1;
+            if (second < 0) {
+                $('#timer').removeAttr('disabled').text('重新发送验证码');
+                clearInterval(timer);
+            } else {
+                $('#timer .second').text(second);
+            }
+        }, 1000);
+    }
+    $(document).ready(function() {
+        var init_text = $('#timer').html();
+        timer = set_timer();
+        $('#timer').click(function() {
+            $('#timer').attr('disabled', 'disabled');
+            $.ajax({
+                type: 'POST',
+                dataType: 'json',
+                url: '<?php echo site_url("users/resend") ?>',
+                data: {mobile: $('form').find('input[name="mobile"]').val()},
+                success: function(res) {
+                    if (res.success) {
+                        $('#timer').attr('disabled', 'disabled').html(init_text);
+                        timer = set_timer();
+                    } else {
+                        $('#timer').attr('disabled', 'disabled').html(res.message);
+                    }
+                }
+            });
+        });
+    });
+</script>
