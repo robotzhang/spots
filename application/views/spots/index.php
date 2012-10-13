@@ -1,6 +1,6 @@
 <div class="row">
     <span class="span3">
-        <ul class="nav nav-tabs nav-stacked">
+        <ul class="nav nav-tabs nav-stacked" style="margin-right: 20px;">
             <?php foreach ($provinces as $province): ?>
             <li<?php if($province->name == $this->input->get('province')) echo ' class="active"' ?>>
                 <a href="<?php echo site_url('spots?province='.urlencode($province->name)) ?>">
