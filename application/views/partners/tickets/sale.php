@@ -9,11 +9,8 @@
         <div class="control-group">
             <label for="ticket[spot_id]" class="control-label">所属景点</label>
             <div class="controls">
-                <select name="ticket[spot_id]">
-                    <?php foreach ($spots as $spot): ?>
-                    <option value="<?php echo $spot->id ?>"><?php echo $spot->name ?></option>
-                    <?php endforeach ?>
-                </select>
+                <span><?php echo $spots[0]->name ?></span>
+                <input type="hidden" name="ticket[spot_id]" value="<?php echo $spots[0]->id ?>" />
             </div>
         </div>
         <div class="control-group">
