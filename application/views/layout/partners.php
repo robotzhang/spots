@@ -33,7 +33,7 @@ $action_next = $this->uri->segment(2);
     <div class="header">
         <div class="container">
             <div class="pull-left">
-                <a style="color: #fff; font-size: 20px;" href="<?php echo site_url('partners') ?>">UTO168</a>
+                <a style="color: #fff; font-size: 20px;" href="<?php echo site_url('partners') ?>">chinazjy.org</a>
             </div>
             <div class="pull-right">
                 欢迎：

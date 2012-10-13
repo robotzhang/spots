@@ -104,7 +104,7 @@ class Users extends CI_Controller {
         $code =  rand(1001, 9999);
         $this->session->set_userdata($mobile.'_code', $code);
         $this->load->library('message');
-        $this->message->mobile($mobile, '您好!您在uto168上的激活码为'.$code.'.请尽快完成激活');
+        $this->message->mobile($mobile, '您好!您在chinazjy.org上的激活码为'.$code.'.请尽快完成激活');
     }
 }
 
