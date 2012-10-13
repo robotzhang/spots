@@ -3,7 +3,10 @@
         <ul class="nav nav-tabs nav-stacked">
             <?php foreach ($provinces as $province): ?>
             <li<?php if($province->name == $this->input->get('province')) echo ' class="active"' ?>>
-                <a href="<?php echo site_url('spots?province='.urlencode($province->name)) ?>"><?php echo $province->name ?></a>
+                <a href="<?php echo site_url('spots?province='.urlencode($province->name)) ?>">
+                    <?php echo $province->name ?>
+                    <span>(<?php echo $province->count ?>)</span>
+                </a>
             </li>
             <?php endforeach ?>
         </ul>
