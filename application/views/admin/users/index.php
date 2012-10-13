@@ -9,7 +9,8 @@
         <tr>
             <th width="40">id</th>
             <th>手机号码</th>
-            <th>ip</th>
+            <th>手册id号</th>
+            <th>驾驶证号</th>
             <th>激活时间</th>
             <th>操作</th>
         </tr>
@@ -19,7 +20,8 @@
         <tr>
             <td><?php echo $user->id ?></td>
             <td><?php echo $user->mobile ?></td>
-            <td><?php echo $user->ip ?></td>
+            <td><?php echo $user->handbook->unique_id ?></td>
+            <td><?php echo $user->drive ?></td>
             <td><?php echo $user->created_at ?></td>
             <td>
                 <a title="编辑" href="<?php echo site_url('admin/users/edit/'.$user->id) ?>"><i class="icon-edit"></i></a>

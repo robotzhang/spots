@@ -11,6 +11,7 @@ class Users extends CI_Controller {
     }
 	public function index() {
         $users = $this->user->get(array(), $this->input->get('page'), 20);
+        $users = $this->user->set_handbook($users);
         $this->load->library('page', array('total' => $this->user->last_query_number));
 		$this->layout->view('admin/users/index', array('users' => $users, 'pagination' => $this->page->create()));
 	}

@@ -17,6 +17,25 @@ class User_model extends MY_Model
         }
         return parent::create($entity);
     }
+
+    public function set_handbook($users) {
+        $ids = array();
+        foreach ($users as $user) {
+            $ids[] = $user->id;
+        }
+        $ids = array_unique($ids);
+        $this->load->model('Handbook_model', 'handbook');
+        $handbooks = $this->handbook->db->where_in('user_id', join(',', $ids))->get($this->handbook->table)->result();
+        foreach ($handbooks as $handbook) {
+            foreach ($users as $user) {
+                if ($handbook->user_id == $user->id) {
+                    $user->handbook = $handbook;
+                    break;
+                }
+            }
+        }
+        return $users;
+    }
 }
 
 /* End of file topic_model.php */
