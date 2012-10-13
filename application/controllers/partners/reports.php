@@ -11,6 +11,10 @@ class Reports extends CI_Controller {
         redirect('partners/reports/day');
     }
 
+    public function all() {
+        $this->get_report_data(null, null);
+    }
+
     public function day($day=0) {
         $time_start = date('Y-m-d 00:00:00');
         $time_end = date('Y-m-d 23:59:59');

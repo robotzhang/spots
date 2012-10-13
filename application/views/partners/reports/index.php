@@ -17,15 +17,23 @@
     <li<?php if ($active == 'month') echo ' class="active"' ?>>
         <a href="<?php echo site_url('partners/reports/month') ?>">当月统计</a>
     </li>
+    <li<?php if ($active == 'all') echo ' class="active"' ?>>
+        <a href="<?php echo site_url('partners/reports/all') ?>">所有统计</a>
+    </li>
     <li class="pull-right">
         <div class="fs12 mt10 cgray">今天是 <?php echo date('Y/m/d') ?> 星期 <?php echo date('w') ?></div>
     </li>
 </ul>
 <p style="margin-left: 20px;">
+    <?php if (!empty($time_start)): ?>
     <strong><?php echo date('Y/m/d', strtotime($time_start)) ?></strong>
+    <?php endif ?>
+    <?php if (!empty($time_end)): ?>
     至
     <strong><?php echo date('Y/m/d', strtotime($time_end)) ?></strong>
+    <?php endif ?>
     门票售出情况如下：
+
 </p>
 <ul class="unstyled reports">
     <?php foreach ($spots as $spot): ?>
