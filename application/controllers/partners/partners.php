@@ -7,7 +7,7 @@ class Partners extends CI_Controller {
     }
 
 	public function index() {
-        redirect(site_url('partners/reports'));
+        redirect(site_url('partners/tickets/sale'));
 	}
 
     public function login() {
