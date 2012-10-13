@@ -7,7 +7,7 @@ class Spots extends CI_Controller {
     }
 
     public function index() {
-        $spots = $this->spot->get(array(), $this->input->get('page'), 20);
+        $spots = $this->spot->get(array('province' => urldecode($this->input->get('province'))), $this->input->get('page'), 20);
         $this->load->library('page', array('total' => $this->spot->last_query_number));
         $this->layout->view('spots/index', array('spots' => $spots, 'provinces' => $this->spot->provinces(),'pagination' => $this->page->create()));
     }
