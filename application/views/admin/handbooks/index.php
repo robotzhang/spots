@@ -10,6 +10,7 @@
         <tr>
             <th width="40">id</th>
             <th>手册ID</th>
+            <th>状态</th>
             <th>创建时间</th>
             <th>操作</th>
         </tr>
@@ -19,6 +20,9 @@
         <tr>
             <td><?php echo $handbook->id ?></td>
             <td><?php echo $handbook->unique_id ?></td>
+            <td>
+                <?php echo $handbook->is_used == 'Y' ? '已使用' : '未激活' ?>
+            </td>
             <td><?php echo $handbook->created_at ?></td>
             <td>
                 <a title="删除" onclick="if(!confirm('确定删除？'))return false;" href="<?php echo site_url('admin/handbooks/delete?id='.$handbook->id) ?>"><i class="icon-trash"></i></a>
