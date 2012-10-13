@@ -46,6 +46,7 @@
     <?php endforeach ?>
 </ul>
 
+<?php if (!empty($tickets)): ?>
 <table class="table table-bordered table-striped">
     <thead>
     <tr>
@@ -67,3 +68,4 @@
     </tbody>
 </table>
 <div class="pagination pagination-centered"><?php echo $pagination; ?></div>
+<?php endif ?>

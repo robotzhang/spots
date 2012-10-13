@@ -40,7 +40,7 @@ class Reports extends CI_Controller {
         $spots = $this->ticket->count_for_spots($spots, $time_start, $time_end);
         // 获取门票信息
         $tickets = $this->ticket->get_tickets($spots[0]->id, $time_start, $time_end, $this->input->get('page'));
-        $this->load->library('page', array('total' => $spots[0]->ticket_counts));
+        $this->load->library('page', array('total' => empty($spots[0]->ticket_counts) ? 0 : $spots[0]->ticket_counts));
         $this->layout->view('partners/reports/index', array(
             'spots' => $spots,
             'tickets' => $tickets,

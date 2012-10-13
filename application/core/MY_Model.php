@@ -136,8 +136,6 @@ class MY_Model extends CI_Model
         $ids = array_unique($ids);
         $this->load->model($model_name);
         $objects = $this->{$model_name}->db->where_in('id', join(',', $ids))->get($this->{$model_name}->table)->result();
-
-        echo $this->{$model_name}->db->last_query();
         foreach ($entities as $entity) {
             foreach ($objects as $object) {
                 if ($entity->{$fk} == $object->id) {
