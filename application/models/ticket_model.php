@@ -83,13 +83,14 @@ class Ticket_model extends MY_Model
 
     //
     public function get_tickets($spot_id, $time_start=null, $time_end=null, $page=1, $offset=20) {
-        $sql = sprintf("SELECT * FROM tickets WHERE spot_id = %d", $spot_id);
+        $sql = sprintf("SELECT count(*) as count, tickets.* FROM tickets WHERE spot_id = %d", $spot_id);
         if (!empty($time_start)) {
             $sql .= sprintf(" AND created_at > '%s'", $time_start);
         }
         if (!empty($time_end)) {
             $sql .= sprintf(" AND created_at < '%s'", $time_end);
         }
+        $sql .= " GROUP BY user_id "; // 统计张数
         if (!empty($page)) {
             $sql .= sprintf(" LIMIT %d, %d", ($page-1)*$offset, $offset);
         }

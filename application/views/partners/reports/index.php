@@ -52,6 +52,7 @@
         <th>手册id</th>
         <th>购买人</th>
         <th>购买时间</th>
+        <th>剩余张数</th>
     </tr>
     </thead>
     <tbody>
@@ -60,6 +61,7 @@
         <td><?php echo $ticket->handbook_unique_id ?></td>
         <td><?php echo $ticket->user->mobile ?></td>
         <td><?php echo $ticket->created_at ?></td>
+        <td><?php echo 3 - $ticket->count ?></td>
     </tr>
         <?php endforeach ?>
     </tbody>
