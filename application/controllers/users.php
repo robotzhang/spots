@@ -10,7 +10,7 @@ class Users extends CI_Controller {
      * */
 	public function activation() {
         if (empty($_POST)) {
-            return redirect(site_url());
+            return $this->layout->view('users/activation_form');
         }
         $user = $this->input->post('user');
         $user['ip'] = $this->input->ip_address();

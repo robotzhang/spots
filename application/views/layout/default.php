@@ -28,11 +28,11 @@ $action_next = $this->uri->segment(2);
   ?>
 </head>
 
-<body>
+<body id="default">
   <?php $this->load->view('common/header.php'); ?>
 
   <div class="site">
-      <div class="container">
+      <div class="container content">
         <?php echo $layout['content']; ?>
       </div>
   </div>
