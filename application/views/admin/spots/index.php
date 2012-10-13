@@ -10,6 +10,7 @@
         <tr>
             <th width="40">id</th>
             <th>景点名称</th>
+            <th>所属省份</th>
             <th>添加时间</th>
             <th>操作</th>
         </tr>
@@ -19,6 +20,7 @@
         <tr>
             <td><?php echo $spot->id ?></td>
             <td><?php echo $spot->name ?></td>
+            <td><?php echo $spot->province ?></td>
             <td><?php echo $spot->created_at ?></td>
             <td>
                 <a title="编辑" href="<?php echo site_url('admin/spots/edit/'.$spot->id) ?>"><i class="icon-edit"></i></a>

@@ -14,6 +14,12 @@
             </div>
         </div>
         <div class="control-group">
+            <label for="spot[province]" class="control-label">所属省份</label>
+            <div class="controls">
+                <input type="text" name="spot[province]" class="input-xxlarge" value="<?php if (!empty($spot)) echo $spot->province ?>">
+            </div>
+        </div>
+        <div class="control-group">
             <label for="spot[introduce]" class="control-label">景点介绍</label>
             <div class="controls">
                 <textarea id="editor" style="width: 100%;" class="input-xxlarge" rows="5" name="spot[introduce]"><?php if (!empty($spot)) echo $spot->introduce ?></textarea>

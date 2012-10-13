@@ -11,6 +11,10 @@ class Spot_model extends MY_Model
     public function top10() {
         return $this->db->limit(10)->order_by('rand()')->get($this->table)->result();
     }
+
+    public function provinces() {
+        return $this->db->select('count(*) AS count, province as name')->group_by('province')->get($this->table)->result();
+    }
 }
 
 /* End of file spot_model.php */
