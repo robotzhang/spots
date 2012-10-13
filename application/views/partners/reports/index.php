@@ -6,7 +6,9 @@
     .reports li em { color: red; font-family: Constantia,Georgia; font-size: 20px; font-weight: 700; font-style: normal; }
     .reports li:last-child { border-bottom: none; }
 </style>
-
+<div class="pull-right">
+    <div class="fs12 mt10 cgray">今天是 <?php echo date('Y/m/d') ?> 星期 <?php echo date('w') ?></div>
+</div>
 <ul class="nav nav-tabs">
     <li<?php if ($active == 'day') echo ' class="active"' ?>>
         <a href="<?php echo site_url('partners/reports/day') ?>">今日统计</a>
@@ -20,10 +22,8 @@
     <li<?php if ($active == 'all') echo ' class="active"' ?>>
         <a href="<?php echo site_url('partners/reports/all') ?>">所有统计</a>
     </li>
-    <li class="pull-right">
-        <div class="fs12 mt10 cgray">今天是 <?php echo date('Y/m/d') ?> 星期 <?php echo date('w') ?></div>
-    </li>
 </ul>
+
 <p style="margin-left: 20px;">
     <?php if (!empty($time_start)): ?>
     <strong><?php echo date('Y/m/d', strtotime($time_start)) ?></strong>
@@ -45,3 +45,23 @@
         <?php endif ?>
     <?php endforeach ?>
 </ul>
+
+<table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+        <th>手册id</th>
+        <th>购买人</th>
+        <th>购买时间</th>
+    </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($tickets as $ticket): ?>
+    <tr>
+        <td><?php echo $ticket->handbook_unique_id ?></td>
+        <td><?php echo $ticket->user->mobile ?></td>
+        <td><?php echo $ticket->created_at ?></td>
+    </tr>
+        <?php endforeach ?>
+    </tbody>
+</table>
+<div class="pagination pagination-centered"><?php echo $pagination; ?></div>

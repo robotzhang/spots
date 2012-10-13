@@ -126,6 +126,28 @@ class MY_Model extends CI_Model
             return TRUE;
         }
     }
+
+    // set($tickets, 'User_model', 'user_id')
+    public function set($entities, $model_name, $fk) {
+        $ids = array();
+        foreach ($entities as $entity) {
+            $ids[] = $entity->{$fk};
+        }
+        $ids = array_unique($ids);
+        $this->load->model($model_name);
+        $objects = $this->{$model_name}->db->where_in('id', join(',', $ids))->get($this->{$model_name}->table)->result();
+
+        echo $this->{$model_name}->db->last_query();
+        foreach ($entities as $entity) {
+            foreach ($objects as $object) {
+                if ($entity->{$fk} == $object->id) {
+                    $entity->{str_replace('_id', '', $fk)} = $object;
+                    break;
+                }
+            }
+        }
+        return $entities;
+    }
 }
 
 /* End of file MY_Model.php */

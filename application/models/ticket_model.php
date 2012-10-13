@@ -80,6 +80,23 @@ class Ticket_model extends MY_Model
 
         return $spots;
     }
+
+    //
+    public function get_tickets($spot_id, $time_start=null, $time_end=null, $page=1, $offset=20) {
+        $sql = sprintf("SELECT * FROM tickets WHERE spot_id = %d", $spot_id);
+        if (!empty($time_start)) {
+            $sql .= sprintf(" AND created_at > '%s'", $time_start);
+        }
+        if (!empty($time_end)) {
+            $sql .= sprintf(" AND created_at < '%s'", $time_end);
+        }
+        if (!empty($page)) {
+            $sql .= sprintf(" LIMIT %d, %d", ($page-1)*$offset, $offset);
+        }
+        $tickets = $this->db->query($sql)->result();
+        $tickets = $this->set($tickets, 'User_model', 'user_id');
+        return $tickets;
+    }
 }
 
 /* End of file ticket_model.php */
