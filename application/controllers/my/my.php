@@ -7,8 +7,11 @@ class My extends CI_Controller {
         //$this->layout->setLayout('layout/my');
     }
 
-    public function index()
-    {
+    public function index() {
+        redirect('my/tickets');
+    }
+
+    public function time_line() {
         // 验证用户手机是否验证，手册id是否存在
         if (current_user()->is_validation == 'N') {
             $this->load->model('Handbook_model', 'handbook');

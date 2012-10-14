@@ -1,5 +1,8 @@
+<ul class="nav nav-tabs">
+    <li><a href="<?php echo site_url('my/tickets') ?>">购买记录</a></li>
+    <li class="active"><a href="javascript:void(0);">时光轴</a></li>
+</ul>
 <div class="timeline">
-    <p class="fs16 mb20"><strong>我的时光轴</strong></p>
     <div class="dotted"></div>
     <div class="warp">
         <div class="item_box">
