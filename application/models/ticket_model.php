@@ -95,6 +95,7 @@ class Ticket_model extends MY_Model
         if (!empty($page)) {
             $sql .= sprintf(" LIMIT %d, %d", ($page-1)*$offset, $offset);
         }
+
         $tickets = $this->db->query($sql)->result();
         $tickets = $this->set($tickets, 'User_model', 'user_id');
         return $tickets;

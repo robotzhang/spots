@@ -33,13 +33,27 @@ class Reports extends CI_Controller {
         $this->get_report_data($time_start, $time_end);
     }
 
+    // 导出报表
+    public function export() {
+        $this->load->model('Spot_model', 'spot');
+        $spots = $this->spot->find_by('partner_id', current_partner()->id);
+        $this->load->model('Ticket_model', 'ticket');
+        $spots = $this->ticket->count_for_spots($spots);
+        $tickets = $this->ticket->get_tickets($spots[0]->id);
+        $output = $this->load->view('partners/reports/export',array('spots' => $spots, 'tickets' => $tickets), true);
+        header('Content-Type: application/csv');
+        header('Content-Disposition: attachment; filename="report.csv"');
+        echo $output;
+    }
+
     private function get_report_data($time_start, $time_end) {
         $this->load->model('Spot_model', 'spot');
         $spots = $this->spot->find_by('partner_id', current_partner()->id);
         $this->load->model('Ticket_model', 'ticket');
         $spots = $this->ticket->count_for_spots($spots, $time_start, $time_end);
         // 获取门票信息
-        $tickets = $this->ticket->get_tickets($spots[0]->id, $time_start, $time_end, $this->input->get('page'));
+        $page = $this->input->get('page');
+        $tickets = $this->ticket->get_tickets($spots[0]->id, $time_start, $time_end, (is_numeric($page) ? $page : 1));
         $this->load->library('page', array('total' => empty($spots[0]->ticket_counts) ? 0 : $spots[0]->ticket_counts));
         $this->layout->view('partners/reports/index', array(
             'spots' => $spots,

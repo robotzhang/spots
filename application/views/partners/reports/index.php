@@ -7,7 +7,11 @@
     .reports li:last-child { border-bottom: none; }
 </style>
 <div class="pull-right">
-    <div class="fs12 mt10 cgray">今天是 <?php echo date('Y/m/d') ?> 星期 <?php echo date('w') ?></div>
+    <div class="fs12 mt10 cgray">今天是 <?php echo date('Y/m/d') ?> 星期 <?php echo date('w') ?>
+        <a target="_self" href="<?php echo site_url('partners/reports/export') ?>" class="btn btn-mini btn-info">
+            <i class="icon-download-alt icon-white"></i>导出
+        </a>
+    </div>
 </div>
 <ul class="nav nav-tabs">
     <li<?php if ($active == 'day') echo ' class="active"' ?>>
