@@ -1,0 +1,1 @@
+﻿ALTER TABLE  `spots` ADD  `province` VARCHAR( 255 ) COMMENT  '所属省份'
