@@ -28,6 +28,20 @@ class Handbooks extends CI_Controller {
         $this->handbook->delete($this->input->get('id'));
         redirect(site_url('admin/handbooks'));
     }
+
+    public function active($id) {
+        $handbook = current($this->handbook->find_by('id', $id));
+        if (empty($_POST)) {
+            return $this->layout->view('admin/handbooks/active', array('handbook' => $handbook));
+        }
+        $user = $this->input->post('user');
+        $this->load->model('User_model', 'user');
+        if ($this->user->active($user, $handbook->id)) {
+            redirect('admin/handbooks');
+        } else {
+            return $this->layout->view('admin/handbooks/active', array('handbook' => $handbook, 'user' => (object)$user, 'errors' => $this->user->errors));
+        }
+    }
 }
 
 /* End of file admin/handbooks.php */

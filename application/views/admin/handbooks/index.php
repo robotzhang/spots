@@ -26,6 +26,10 @@
             <td><?php echo $handbook->created_at ?></td>
             <td>
                 <a title="删除" onclick="if(!confirm('确定删除？'))return false;" href="<?php echo site_url('admin/handbooks/delete?id='.$handbook->id) ?>"><i class="icon-trash"></i></a>
+                <?php if ($handbook->is_used != 'Y'): ?>
+                |
+                <a title="激活" href="<?php echo site_url('admin/handbooks/active/'.$handbook->id) ?>"><i class="icon-fire"></i></a>
+                <?php endif ?>
             </td>
         </tr>
         <?php endforeach ?>
