@@ -13,12 +13,12 @@
                 <input type="hidden" name="ticket[spot_id]" value="<?php echo $spots[0]->id ?>" />
             </div>
         </div>
-        <div class="control-group">
+        <!--div class="control-group">
             <label for="mobile" class="control-label">用户手机</label>
             <div class="controls">
                 <input type="text" name="mobile" class="input" value="">
             </div>
-        </div>
+        </div-->
         <div class="control-group">
             <label for="ticket[handbook_unique_id]" class="control-label">手册id</label>
             <div class="controls">
@@ -32,6 +32,12 @@
         </div>
     </fieldset>
 </form>
+
+<script>
+    $(document).ready(function() {
+        $('input[name="ticket[handbook_unique_id]"]').focus();
+    });
+</script>
 
 <?php $message = $this->session->flashdata('message'); ?>
 <?php if (!empty($message)): ?>
