@@ -12,6 +12,7 @@ class Tickets extends CI_Controller {
         $tickets = $this->ticket->find_by('user_id', current_user()->id);
         //
         $this->load->model('Spot_model', 'spot');
+        $this->spot->db->order_by('province');
         $spots = $this->spot->get(array(), $this->input->get('page'));
         $this->load->library('page', array('total' => $this->spot->last_query_number));
         foreach($spots as $spot) {

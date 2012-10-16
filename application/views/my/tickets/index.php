@@ -7,6 +7,7 @@
         <tr>
             <th>#</th>
             <th>景点名称</th>
+            <th>所属景区</th>
             <th>已购票数</th>
             <th>剩余票数</th>
         </tr>
@@ -17,6 +18,7 @@
         <tr>
             <td><?php echo $spot->id ?></td>
             <td><?php echo $spot->name ?></td>
+            <td><?php echo $spot->province ?></td>
             <td>
                 <?php echo $ticket_count ?>
                 <?php if ($ticket_count > 0): ?>
