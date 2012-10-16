@@ -33,6 +33,28 @@
     </fieldset>
 </form>
 
+<?php $ticket_saled = $this->session->flashdata('ticket_saled'); ?>
+<?php if (!empty($ticket_saled)): ?>
+<table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+        <th>手册id</th>
+        <th>购买人</th>
+        <th>驾驶证号</th>
+        <th>购买时间</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td><?php echo $ticket_saled->handbook_unique_id ?></td>
+        <td><?php echo $ticket_saled->user->mobile ?></td>
+        <td><?php echo $ticket_saled->user->drive ?></td>
+        <td><?php echo $ticket_saled->created_at ?></td>
+    </tr>
+    </tbody>
+</table>
+<?php endif ?>
+
 <script>
     $(document).ready(function() {
         $('input[name="ticket[handbook_unique_id]"]').focus();

@@ -13,7 +13,11 @@ class Tickets extends CI_Controller {
         $this->load->model('Ticket_model', 'ticket');
         $ticket = $this->input->post('ticket');
         if ($this->ticket->create($ticket)) {
+            $ticket_saled = current($this->ticket->find_by('id', $this->ticket->db->insert_id()));
+            $this->load->model('User_model', 'user');
+            $ticket_saled->user = current($this->user->find_by('id', $ticket_saled->user_id));
             $this->session->set_flashdata('message', '门票成功售出.');
+            $this->session->set_flashdata('ticket_saled', $ticket_saled);
             redirect('partners/tickets/sale');
         } else {
             $data = array(
