@@ -17,9 +17,9 @@
     <li<?php if ($active == 'day') echo ' class="active"' ?>>
         <a href="<?php echo site_url('partners/reports/day') ?>">今日统计</a>
     </li>
-    <li<?php if ($active == 'week') echo ' class="active"' ?>>
+    <!--li<?php if ($active == 'week') echo ' class="active"' ?>>
         <a href="<?php echo site_url('partners/reports/week') ?>">一周统计</a>
-    </li>
+    </li-->
     <li<?php if ($active == 'month') echo ' class="active"' ?>>
         <a href="<?php echo site_url('partners/reports/month') ?>">当月统计</a>
     </li>
@@ -57,7 +57,6 @@
         <th>手册id</th>
         <th>购买人</th>
         <th>购买时间</th>
-        <th>剩余张数</th>
     </tr>
     </thead>
     <tbody>
@@ -66,7 +65,6 @@
         <td><?php echo $ticket->handbook_unique_id ?></td>
         <td><?php echo $ticket->user->mobile ?></td>
         <td><?php echo $ticket->created_at ?></td>
-        <td><?php echo 3 - $ticket->count ?></td>
     </tr>
         <?php endforeach ?>
     </tbody>
