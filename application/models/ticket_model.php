@@ -97,7 +97,9 @@ class Ticket_model extends MY_Model
         }
 
         $tickets = $this->db->query($sql)->result();
-        $tickets = $this->set($tickets, 'User_model', 'user_id');
+        if (!empty($tickets)) {
+            $tickets = $this->set($tickets, 'User_model', 'user_id');
+        }
         return $tickets;
     }
 }
