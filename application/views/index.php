@@ -106,7 +106,7 @@
         $('#banner').coinslider({
             width: 940, // width of slider panel
             height: 390,
-            navigation: false
+            navigation: true
         });
     });
 </script>
