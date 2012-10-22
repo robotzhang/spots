@@ -1,19 +1,111 @@
 <style type="text/css">
-    .site { padding: 40px 0; height: 600px; *height: 520px; background: url(<?php echo base_url('/static/images/home/hero.jpg') ?>) center 0px no-repeat; background-size: cover; }
-    .active { padding: 10px; border-radius: 5px; background: #fff; background: none repeat scroll 0 0 rgba(255, 255, 255, 0.8); box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.4);
-        width: 390px; float: right;
-    }
-    .active legend { margin-bottom: 10px; text-align: center; }
-    .active .control-label { width: 100px; }
-    .active .controls { margin-left: 120px; *margin-left: 0; }
-</style>
+    .site .container { box-shadow: 0 1px 2px #B0B3B6; padding: 15px; border: #DADEE1 1px solid; border-radius: 5px; padding-top: 5px; }
+    .spots li { float: left; margin: 15px; }
+    .spots img { width: 207px; height: 156px; border-radius: 3px; }
 
-<div class="active">
-    <?php $this->load->view('users/activation_form.php'); ?>
+    .hot_des li { padding: 5px 0; }
+    .hot_des li i { font-style: normal; padding: 1px 7px; background-color: #CFCFCF; color: #666; border-radius: 3px; margin-right: 5px; }
+    .hot_des li i.top { background-color: #F28602; color: #fff; }
+    .hot_des li strong { font-weight: normal; font-size: 12px; color: #777; }
+    h2 { background: url("http://zizaike.com/assets/v2/zzk_common.png") no-repeat scroll 0 -250px transparent;
+        font-size: 16px; margin: 10px 0; padding-left: 10px;
+         }
+</style>
+<script src="<?php echo base_url('static/javascripts/plugins/coin-slider/coin-slider.min.js') ?>"></script>
+<link rel="stylesheet" href="<?php echo base_url('static/javascripts/plugins/coin-slider/coin-slider-styles.css') ?>" type="text/css">
+
+<div id="banner">
+    <ul class="unstyled">
+        <li><a href="javascript:void(0);"><img src="<?php echo base_url('static/images/home/demo/b1.jpg') ?>" /> </a></li>
+        <li><a href="javascript:void(0);"><img src="<?php echo base_url('static/images/home/demo/b2.jpg') ?>" /> </a></li>
+        <li><a href="javascript:void(0);"><img src="<?php echo base_url('static/images/home/demo/b3.jpg') ?>" /> </a></li>
+        <li><a href="javascript:void(0);"><img src="<?php echo base_url('static/images/home/demo/b4.jpg') ?>" /> </a></li>
+    </ul>
+</div>
+
+<div class="row">
+    <div class="span9">
+        <h2>最新免费景点</h2>
+        <ul class="unstyled spots">
+            <li>
+                <p><a href="javascript:void(0);"><img src="<?php echo base_url('static/images/home/demo/s1.jpg') ?>" /> </a></p>
+                <div>崇明前卫村<div class="pull-right">原价：80元</div></div>
+            </li>
+            <li>
+                <p><a href="javascript:void(0);"><img src="<?php echo base_url('static/images/home/demo/s2.jpg') ?>" /> </a></p>
+                <div>双乳峰景区<div class="pull-right">原价：100元</div></div>
+            </li>
+            <li style="margin-right: 0;">
+                <p><a href="javascript:void(0);"><img src="<?php echo base_url('static/images/home/demo/s3.jpg') ?>" /> </a></p>
+                <div>邓小平故里<div class="pull-right">原价：40元</div></div>
+            </li>
+
+            <li>
+                <p><a href="javascript:void(0);"><img src="<?php echo base_url('static/images/home/demo/s4.jpg') ?>" /> </a></p>
+                <div>九华山景区<div class="pull-right">原价：60元</div></div>
+            </li>
+            <li>
+                <p><a href="javascript:void(0);"><img src="<?php echo base_url('static/images/home/demo/s5.jpg') ?>" /> </a></p>
+                <div>云冈石窟<div class="pull-right">原价：120元</div></div>
+            </li>
+            <li style="margin-right: 0;">
+                <p><a href="javascript:void(0);"><img src="<?php echo base_url('static/images/home/demo/s6.jpg') ?>" /> </a></p>
+                <div>藏龙百瀑<div class="pull-right">原价：20元</div></div>
+            </li>
+
+            <li>
+                <p><a href="javascript:void(0);"><img src="<?php echo base_url('static/images/home/demo/s3.jpg') ?>" /> </a></p>
+                <div>布达拉宫<div class="pull-right">原价：200元</div></div>
+            </li>
+            <li>
+                <p><a href="javascript:void(0);"><img src="<?php echo base_url('static/images/home/demo/s4.jpg') ?>" /> </a></p>
+                <div>黄山山景区<div class="pull-right">原价：280元</div></div>
+            </li>
+            <li style="margin-right: 0;">
+                <p><a href="javascript:void(0);"><img src="<?php echo base_url('static/images/home/demo/s5.jpg') ?>" /> </a></p>
+                <div>云冈石窟<div class="pull-right">原价：120元</div></div>
+            </li>
+        </ul>
+    </div>
+    <div class="span3">
+        <p><b>热门目的地</b></p>
+        <ul class="unstyled hot_des">
+            <li><i class="top">1</i>上海<strong>(外滩、东方明珠)</strong></li>
+            <li><i class="top">2</i>北京<strong>(故宫、天坛、长城)</strong></li>
+            <li><i class="top">3</i>四川<strong>(九寨沟、乐山大佛、成都)</strong></li>
+            <li><i>4</i>云南<strong>(丽江、西双版纳)</strong></li>
+            <li><i>5</i>西藏<strong>(布达拉宫)</strong></li>
+            <li><i>6</i>新疆<strong>(吐鲁番)</strong></li>
+            <li><i>7</i>三亚<strong>(亚龙湾)</strong></li>
+            <li><i>8</i>贵州<strong>(黄果树瀑布)</strong></li>
+            <li><i>9</i>浙江<strong>(杭州西湖)</strong></li>
+            <li><i>10</i>江苏<strong>(苏州拙政园)</strong></li>
+        </ul>
+        <p><b>最热景点</b></p>
+        <ul class="unstyled hot_des">
+            <li><i class="top">1</i>东方明珠</li>
+            <li><i class="top">2</i>长城</li>
+            <li><i class="top">3</i>九寨沟</li>
+            <li><i>4</i>丽江</li>
+            <li><i>5</i>布达拉宫</li>
+            <li><i>6</i>黄果树瀑布</strong></li>
+            <li><i>7</i>三亚</li>
+            <li><i>8</i>杭州西湖</li>
+            <li><i>9</i>苏州拙政园</li>
+            <li><i>10</i>外滩</li>
+        </ul>
+    </div>
+</div>
+
+<div>
+    <img width="940" src="<?php echo base_url('static/images/home/demo/rb1.jpg') ?>" />
 </div>
 
 <script>
     $(document).ready(function() {
-
+        $('#banner').coinslider({
+            width: 940, // width of slider panel
+            height: 390
+        });
     });
 </script>

@@ -20,6 +20,7 @@
         <li><a<?php if(empty($action)) echo ' class="current"'?> href="<?php echo site_url('') ?>">首页</a></li>
         <li><a<?php if($action == 'users') echo ' class="current"'?> href="<?php echo site_url('users/activation') ?>">激活手册</a></li>
         <li><a<?php if($action == 'spots') echo ' class="current"'?> href="<?php echo site_url('spots') ?>">景点大全</a></li>
+        <li><a<?php if($action == 'about') echo ' class="current"'?> href="javascript:void(0);">计划器</a></li>
         <li><a<?php if($action == 'about') echo ' class="current"'?> href="<?php echo site_url('about') ?>">关于我们</a></li>
     </ul>
 </div>
