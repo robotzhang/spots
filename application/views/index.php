@@ -1,6 +1,6 @@
-<style type="text/css">
+﻿<style type="text/css">
     .site .container { box-shadow: 0 1px 2px #B0B3B6; padding: 15px; border: #DADEE1 1px solid; border-radius: 5px; padding-top: 5px; }
-    .spots li { float: left; margin: 15px; }
+    .spots li { float: left; margin: 15px; width: 207px; }
     .spots img { width: 207px; height: 156px; border-radius: 3px; }
 
     .hot_des li { padding: 5px 0; }
@@ -29,41 +29,41 @@
         <ul class="unstyled spots">
             <li>
                 <p><a href="javascript:void(0);"><img src="<?php echo base_url('static/images/home/demo/s1.jpg') ?>" /> </a></p>
-                <div>崇明前卫村<div class="pull-right">原价：80元</div></div>
+                <div><div class="pull-right">原价：80元</div>崇明前卫村</div>
             </li>
             <li>
                 <p><a href="javascript:void(0);"><img src="<?php echo base_url('static/images/home/demo/s2.jpg') ?>" /> </a></p>
-                <div>双乳峰景区<div class="pull-right">原价：100元</div></div>
+                <div><div class="pull-right">原价：100元</div>双乳峰景区</div>
             </li>
             <li style="margin-right: 0;">
                 <p><a href="javascript:void(0);"><img src="<?php echo base_url('static/images/home/demo/s3.jpg') ?>" /> </a></p>
-                <div>邓小平故里<div class="pull-right">原价：40元</div></div>
+                <div><div class="pull-right">原价：40元</div>邓小平故里</div>
             </li>
 
             <li>
                 <p><a href="javascript:void(0);"><img src="<?php echo base_url('static/images/home/demo/s4.jpg') ?>" /> </a></p>
-                <div>九华山景区<div class="pull-right">原价：60元</div></div>
+                <div><div class="pull-right">原价：60元</div>九华山景区</div>
             </li>
             <li>
                 <p><a href="javascript:void(0);"><img src="<?php echo base_url('static/images/home/demo/s5.jpg') ?>" /> </a></p>
-                <div>云冈石窟<div class="pull-right">原价：120元</div></div>
+                <div><div class="pull-right">原价：120元</div>云冈石窟</div>
             </li>
             <li style="margin-right: 0;">
                 <p><a href="javascript:void(0);"><img src="<?php echo base_url('static/images/home/demo/s6.jpg') ?>" /> </a></p>
-                <div>藏龙百瀑<div class="pull-right">原价：20元</div></div>
+                <div><div class="pull-right">原价：20元</div>藏龙百瀑</div>
             </li>
 
             <li>
                 <p><a href="javascript:void(0);"><img src="<?php echo base_url('static/images/home/demo/s3.jpg') ?>" /> </a></p>
-                <div>布达拉宫<div class="pull-right">原价：200元</div></div>
+                <div><div class="pull-right">原价：200元</div>布达拉宫</div>
             </li>
             <li>
                 <p><a href="javascript:void(0);"><img src="<?php echo base_url('static/images/home/demo/s4.jpg') ?>" /> </a></p>
-                <div>黄山山景区<div class="pull-right">原价：280元</div></div>
+                <div><div class="pull-right">原价：280元</div>黄山山景区</div>
             </li>
             <li style="margin-right: 0;">
                 <p><a href="javascript:void(0);"><img src="<?php echo base_url('static/images/home/demo/s5.jpg') ?>" /> </a></p>
-                <div>云冈石窟<div class="pull-right">原价：120元</div></div>
+                <div><div class="pull-right">原价：120元</div>云冈石窟</div>
             </li>
         </ul>
     </div>
@@ -97,7 +97,7 @@
     </div>
 </div>
 
-<div>
+<div class="mt10">
     <img width="940" src="<?php echo base_url('static/images/home/demo/rb1.jpg') ?>" />
 </div>
 
