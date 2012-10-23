@@ -25,7 +25,7 @@
 
 <div class="row">
     <div class="span9">
-        <h2>最新免费景点</h2>
+        <h2>最新折扣景点</h2>
         <ul class="unstyled spots">
             <li>
                 <p><a href="javascript:void(0);"><img src="<?php echo base_url('static/images/home/demo/s1.jpg') ?>" /> </a></p>
@@ -54,15 +54,15 @@
             </li>
 
             <li>
-                <p><a href="javascript:void(0);"><img src="<?php echo base_url('static/images/home/demo/s3.jpg') ?>" /> </a></p>
+                <p><a href="javascript:void(0);"><img src="<?php echo base_url('static/images/home/demo/s7.jpg') ?>" /> </a></p>
                 <div><div class="pull-right">原价：200元</div>布达拉宫</div>
             </li>
             <li>
-                <p><a href="javascript:void(0);"><img src="<?php echo base_url('static/images/home/demo/s4.jpg') ?>" /> </a></p>
+                <p><a href="javascript:void(0);"><img src="<?php echo base_url('static/images/home/demo/s8.jpg') ?>" /> </a></p>
                 <div><div class="pull-right">原价：280元</div>黄山山景区</div>
             </li>
             <li style="margin-right: 0;">
-                <p><a href="javascript:void(0);"><img src="<?php echo base_url('static/images/home/demo/s5.jpg') ?>" /> </a></p>
+                <p><a href="javascript:void(0);"><img src="<?php echo base_url('static/images/home/demo/s9.jpg') ?>" /> </a></p>
                 <div><div class="pull-right">原价：120元</div>云冈石窟</div>
             </li>
         </ul>
