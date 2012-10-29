@@ -11,6 +11,9 @@
                 <strong><?php echo $spot->name ?></strong>
             </p>
             <div>
+                <img style="max-width: 700px; margin-bottom: 10px;" src="<?php echo base_url($spot->image) ?>" />
+            </div>
+            <div>
                 <?php echo $spot->introduce ?>
             </div>
         </div>

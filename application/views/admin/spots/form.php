@@ -1,4 +1,4 @@
-<form class="form-inline" method="post" action="<?php echo site_url(empty($spot->id) ? 'admin/spots/create' : 'admin/spots/update') ?>">
+<form class="form-inline" enctype="multipart/form-data" method="post" action="<?php echo site_url(empty($spot->id) ? 'admin/spots/create' : 'admin/spots/update') ?>">
     <fieldset>
         <legend><?php echo empty($spot->id) ? '新建' : '编辑' ?>景点</legend>
         <?php if (!empty($spot->errors)): ?>
@@ -24,6 +24,17 @@
             <div class="controls">
                 <textarea id="editor" style="width: 100%;" class="input-xxlarge" rows="5" name="spot[introduce]"><?php if (!empty($spot)) echo $spot->introduce ?></textarea>
             </div>
+        </div>
+        <div class="control-group">
+            <label for="image" class="control-label">景点图片</label>
+            <div class="controls">
+                <input type="file" name="image" />
+            </div>
+            <?php if (!empty($spot->image)): ?>
+            <div class="controls">
+                <img style="height: 150px; margin-top: 10px;" src="<?php echo base_url($spot->image) ?>" />
+            </div>
+            <?php endif ?>
         </div>
 
         <div class="form-actions">

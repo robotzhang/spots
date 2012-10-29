@@ -21,6 +21,7 @@ class Spots extends CI_Controller {
         }
 
         $spot = $this->input->post('spot');
+        $spot['image'] = $this->upload();
         if ($this->spot->create($spot)) {
             redirect('admin/spots/index');
         } else {
@@ -36,6 +37,10 @@ class Spots extends CI_Controller {
 
     public function update() {
         $spot = $this->input->post('spot');
+        $spot_image = $this->upload();
+        if (!empty($spot_image)) {
+            $spot['image'] = $spot_image;
+        }
         if ($this->spot->update($spot)) {
             redirect('admin/spots/index');
         } else {
@@ -47,6 +52,20 @@ class Spots extends CI_Controller {
     public function delete($id) {
         $this->spot->delete($id);
         redirect('admin/spots/index');
+    }
+
+    private function upload() {
+        $config['upload_path'] = getcwd().'./uploads/spots';
+        $config['allowed_types'] = 'gif|jpg|png';
+        $config['max_size'] = '4048';
+        $config['file_name'] = time();
+        $this->load->library('upload', $config);
+        if ($this->upload->do_upload('image')) {
+            $data = $this->upload->data();
+            return '/uploads/spots/'.$data['file_name'];
+        } else {
+            return '';
+        }
     }
 
 }
