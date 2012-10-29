@@ -131,18 +131,16 @@
     <div class="span3">
         <p><b>自驾游小贴上</b></p>
         <ul class="unstyled hot_des">
-            <li>1.自驾出游必读常识</li>
-            <li>2.女性自驾游宝物大搜罗</li>
-            <li>3.史上最全自驾游集锦</li>
-            <li>4.如何做好自驾摄影</li>
-            <li>5.发烧友的自驾游三级跳秘诀</li>
+            <li><i class="top">1</i>自驾出游必读常识</li>
+            <li><i class="top">2</i>女性自驾游宝物大搜罗</li>
+            <li><i class="top">3</i>史上最全自驾游集锦</li>
+            <li><i>4</i>如何做好自驾摄影</li>
+            <li><i>5</i>发烧友的自驾游三级跳秘诀</li>
         </ul>
         <p><b>自驾天气预报</b></p>
         <div>
             <img src="<?php echo base_url('static/images/home/weather.png') ?>" />
         </div>
-        <p><b>订购热线</b></p>
-        <div>13900000000</div>
         <p><b>网购也精彩</b></p>
     </div>
 </div>
