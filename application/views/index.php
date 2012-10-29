@@ -97,6 +97,56 @@
     </div>
 </div>
 
+<div class="row">
+    <div class="span9">
+        <h2>旅游攻略</h2>
+        <ul class="unstyled spots">
+            <li>
+                <p><a href="javascript:void(0);"><img src="<?php echo base_url('static/images/home/demo/t1.png') ?>" /> </a></p>
+                <div><div class="pull-right">2012/10/22</div>徐州北京自驾游</div>
+            </li>
+            <li>
+                <p><a href="javascript:void(0);"><img src="<?php echo base_url('static/images/home/demo/t2.png') ?>" /> </a></p>
+                <div><div class="pull-right">2012/10/07</div>密云自驾游</div>
+            </li>
+            <li style="margin-right: 0;">
+                <p><a href="javascript:void(0);"><img src="<?php echo base_url('static/images/home/demo/t3.png') ?>" /> </a></p>
+                <div><div class="pull-right">2012/9/24</div>北塘海鲜自驾游</div>
+            </li>
+
+            <li>
+                <p><a href="javascript:void(0);"><img src="<?php echo base_url('static/images/home/demo/t4.png') ?>" /> </a></p>
+                <div><div class="pull-right">2012/10/22</div>西安旅游攻略</div>
+            </li>
+            <li>
+                <p><a href="javascript:void(0);"><img src="<?php echo base_url('static/images/home/demo/t5.png') ?>" /> </a></p>
+                <div><div class="pull-right">2012/8/29</div>丽江旅游攻略</div>
+            </li>
+            <li style="margin-right: 0;">
+                <p><a href="javascript:void(0);"><img src="<?php echo base_url('static/images/home/demo/t6.png') ?>" /> </a></p>
+                <div><div class="pull-right">2012/9/11</div>上海旅游攻略</div>
+            </li>
+        </ul>
+    </div>
+    <div class="span3">
+        <p><b>自驾游小贴上</b></p>
+        <ul class="unstyled hot_des">
+            <li>1.自驾出游必读常识</li>
+            <li>2.女性自驾游宝物大搜罗</li>
+            <li>3.史上最全自驾游集锦</li>
+            <li>4.如何做好自驾摄影</li>
+            <li>5.发烧友的自驾游三级跳秘诀</li>
+        </ul>
+        <p><b>自驾天气预报</b></p>
+        <div>
+            <img src="<?php echo base_url('static/images/home/weather.png') ?>" />
+        </div>
+        <p><b>订购热线</b></p>
+        <div>13900000000</div>
+        <p><b>网购也精彩</b></p>
+    </div>
+</div>
+
 <div class="mt10">
     <img width="940" src="<?php echo base_url('static/images/home/demo/rb1.jpg') ?>" />
 </div>
