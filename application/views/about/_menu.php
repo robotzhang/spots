@@ -7,10 +7,7 @@
         <a href="<?php echo site_url('about/lines') ?>"><i class="icon-road"></i> 线路推介</a>
     </li>
     <li<?php if($action_next=='tools') echo ' class="active"' ?>>
-        <a href="<?php echo site_url('about/tools') ?>"><i class="icon-tag"></i> 旅行工具箱</a>
-    </li>
-    <li<?php if($action_next=='books') echo ' class="active"' ?>>
-        <a href="<?php echo site_url('about/books') ?>"><i class="icon-book"></i> 自驾游路书</a>
+        <a href="<?php echo site_url('about/tools') ?>"><i class="icon-tag"></i>智慧旅游</a>
     </li>
     <li<?php if($action_next=='company') echo ' class="active"' ?>>
         <a href="<?php echo site_url('about/company') ?>"><i class="icon-info-sign"></i> 公司简介</a>
