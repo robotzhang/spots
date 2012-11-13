@@ -29,6 +29,7 @@ class MY_Model extends CI_Model
         if ($this->db->field_exists('updated_at', $this->table)) {
             $entity['updated_at'] = date('Y-m-d H:i:s');
         }
+        unset($entity['id']);
         return $this->validation($entity, 'add') === TRUE ? $this->db->insert($this->table, $entity) : FALSE;
     }
 
