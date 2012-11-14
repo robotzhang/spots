@@ -1,4 +1,4 @@
-﻿<?php $action = $this->uri->segment(1); ?>
+<?php $action = $this->uri->segment(1); ?>
 <div class="header_new">
     <div class="container">
         <div class="pull-left"><a class="logo" href="<?php echo site_url('') ?>"><img src="<?php echo base_url('static/images/logo.jpg') ?>" /> </a></div>
