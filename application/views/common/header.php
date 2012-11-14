@@ -1,9 +1,9 @@
-<?php $action = $this->uri->segment(1); ?>
+﻿<?php $action = $this->uri->segment(1); ?>
 <div class="header_new">
     <div class="container">
         <div class="pull-left"><a class="logo" href="<?php echo site_url('') ?>"><img src="<?php echo base_url('static/images/logo.jpg') ?>" /> </a></div>
-        <div class="member clearfix pull-right">
-            <!--
+  	<!--
+        <div class="member clearfix pull-right">          
             <?php if (is_login()): ?>
             <a href="<?php echo site_url('my') ?>">欢迎 <i class="icon-edit"></i><?php echo current_user()->nickname; ?></a>
             -
@@ -11,10 +11,10 @@
             <?php else: ?>
             <a href="<?php echo site_url('') ?>">激活</a> -
             <a href="<?php echo site_url('login?url='.current_url()) ?>">登录</a>
-            <?php endif ?>
-            -->
+            <?php endif ?>            
             <img src="<?php echo base_url('static/images/common/400.png') ?>" />
         </div>
+	-->
     </div>
 </div>
 
