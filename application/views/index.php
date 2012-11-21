@@ -37,7 +37,7 @@
             </li>
             <li style="margin-right: 0;">
                 <p><a href="javascript:void(0);"><img src="<?php echo base_url('static/images/home/demo/s3.jpg') ?>" /> </a></p>
-                <div><div class="pull-right">原价：40元</div>邓小平故里</div>
+                <div><div class="pull-right">原价：0元</div>邓小平故里</div>
             </li>
 
             <li>
