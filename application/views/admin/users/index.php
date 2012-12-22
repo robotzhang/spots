@@ -1,5 +1,5 @@
 <div class="mb10">
-    <a class="btn" target="_blank" href="<?php echo site_url('admin/handbooks') ?>">
+    <a class="btn" href="<?php echo site_url('admin/handbooks') ?>">
         <i class="icon-plus-sign"></i>
         添加用户
     </a>
