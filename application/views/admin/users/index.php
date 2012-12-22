@@ -20,7 +20,7 @@
         <tr>
             <td><?php echo $user->id ?></td>
             <td><?php echo $user->mobile ?></td>
-            <td><?php echo $user->handbook->unique_id ?></td>
+            <td><?php echo empty($user->handbook) ? '未知id号' : $user->handbook->unique_id ?></td>
             <td><?php echo $user->drive ?></td>
             <td><?php echo $user->created_at ?></td>
             <td>
