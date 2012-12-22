@@ -24,4 +24,4 @@
     </tbody>
 </table>
 
-<div class="pagination pagination-centered"><?php echo $pagination; ?></div>
+<div class="pagination pagination-centered" style="height: auto;"><?php echo $pagination; ?></div>
