@@ -3,6 +3,17 @@
     <li><a href="#">已使用</a></li>
     <li><a href="#">未激活</a></li>
 </ul-->
+<div class="alert">
+    <dl class="dl-horizontal">
+        <dt>手册总数：</dt>
+        <dd><span class="red_star"><?php echo $count['all'] ?></span></dd>
+        <dt>已激活数量：</dt>
+        <dd><span class="red_star"><?php echo $count['used_y'] ?></span></dd>
+        <dt>未激活数量：</dt>
+        <dd><span class="red_star"><?php echo $count['used_n'] ?></span></dd>
+    </dl>
+</div>
+
 <table class="table">
     <thead>
     <tr>

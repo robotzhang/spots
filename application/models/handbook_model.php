@@ -25,6 +25,10 @@ class Handbook_model extends MY_Model
 
         return true;
     }
+
+    public function count($where=array()) {
+        return $this->db->where($where)->count_all_results($this->table);
+    }
 }
 
 /* End of file topic_model.php */

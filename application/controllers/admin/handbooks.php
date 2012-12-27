@@ -10,6 +10,12 @@ class Handbooks extends CI_Controller {
         $this->layout->setLayout('layout/admin');
     }
 	public function index() {
+        if (!empty($_GET['unique_id'])) {
+            $this->handbook->db->order_by('unique_id', $this->input->get('unique_id') == 'desc' ? 'desc' : 'asc');
+        }
+        if (!empty($_GET['is_used'])) {
+            $this->handbook->db->order_by('is_used', $this->input->get('is_used') == 'Y' ? 'desc' : 'asc');
+        }
         $handbooks = $this->handbook->get(array(), $this->input->get('page'), 20);
         $this->load->library('page', array('total' => $this->handbook->last_query_number));
 		$this->layout->view('admin/handbooks/index.php', array('handbooks' => $handbooks, 'pagination' => $this->page->create()));

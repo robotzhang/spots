@@ -9,8 +9,8 @@
     <thead>
         <tr>
             <th width="40">id</th>
-            <th>手册ID</th>
-            <th>状态</th>
+            <th><a href="<?php echo site_url('admin/handbooks?unique_id='.($this->input->get('unique_id') == 'asc' ? 'desc' : 'asc')) ?>">手册ID</a></th>
+            <th><a href="<?php echo site_url('admin/handbooks?is_used='.($this->input->get('is_used') == 'Y' ? 'N' : 'Y')) ?>">状态</a></th>
             <th>创建时间</th>
             <th>操作</th>
         </tr>
